@@ -36,9 +36,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       <h1 className="mt-8 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight">
         {post.frontmatter.title}
       </h1>
-      {post.frontmatter.date ? (
-        <p className="mt-3 font-mono text-xs text-muted">{post.frontmatter.date}</p>
-      ) : null}
+      <p className="mt-3 font-mono text-xs text-muted">
+        {post.frontmatter.author ?? "Bamidele Ajibola"}
+        {post.frontmatter.date ? ` · ${post.frontmatter.date}` : ""}
+      </p>
       <div className="mt-10 max-w-2xl">
         <Prose>
           <MDXRemote source={post.content} />

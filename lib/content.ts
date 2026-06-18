@@ -6,6 +6,7 @@ export type Frontmatter = {
   title: string;
   summary: string;
   date?: string;
+  author?: string;
   client?: string;
   outcome?: string;
   draft?: boolean;
