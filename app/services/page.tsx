@@ -14,13 +14,13 @@ const offers = [
     n: "01",
     title: "The consolidation build",
     body: "One engagement to map and unify your operation into a single system, the way the Okoh build was done. From sourcing to delivery, in one place.",
-    price: "[TO FILL: price range, starting from, or by application only]",
+    price: "By application",
   },
   {
     n: "02",
     title: "Ongoing support and retainer",
     body: "A monthly arrangement to maintain the system, extend it, and improve it as the operation grows.",
-    price: "[TO FILL: framing, you can keep price off the site]",
+    price: "Monthly, scoped to your system",
   },
   {
     n: "03",

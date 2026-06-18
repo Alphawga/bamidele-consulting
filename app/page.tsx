@@ -181,8 +181,8 @@ export default function Home() {
             <div className="bg-paper p-6 sm:col-span-2">
               <p className="label">Outcome</p>
               <p className="mt-3 font-display text-xl font-bold text-ink">
-                [TO FILL: one or two concrete result numbers, for example hours saved per
-                week, faster quote turnaround, fewer missed orders]
+                One team, one screen, from sourcing to delivery. The owner is no longer the
+                single point everything has to route through.
               </p>
             </div>
           </div>

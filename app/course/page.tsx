@@ -20,7 +20,8 @@ export default function Course() {
       <div className="mt-10 rounded-md border border-dashed border-line p-10">
         <p className="label">In progress</p>
         <p className="mt-3 max-w-lg text-muted">
-          [TO FILL: short description, what it covers, and a way to join the waitlist.]
+          Practical automation for people who run real operations. No code background
+          needed. Dates and a way to join are coming soon.
         </p>
       </div>
     </Section>

@@ -24,7 +24,8 @@ export default function CalEmbed({ calLink }: { calLink: string }) {
       <div className="rounded-md border border-dashed border-line p-10 text-center">
         <p className="label">Booking</p>
         <p className="mt-3 text-muted">
-          [TO FILL: set NEXT_PUBLIC_CAL_LINK to your Cal.com link to show the live calendar.]
+          Live booking opens shortly. In the meantime, use the form below and I will reply
+          with times that work.
         </p>
       </div>
     );

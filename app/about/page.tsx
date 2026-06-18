@@ -42,9 +42,17 @@ export default function About() {
           </div>
         </div>
         <div>
-          <div className="aspect-[4/5] rounded-md border border-line bg-paper/60">
-            <div className="flex h-full items-center justify-center">
-              <span className="label">[TO FILL: photo]</span>
+          <div className="flex aspect-[4/5] flex-col justify-between rounded-md border border-line bg-ink p-8 text-paper">
+            <span className="label text-accent">Lagos, Nigeria</span>
+            <div>
+              <p className="font-display text-3xl font-bold leading-tight">
+                Bamidele
+                <br />
+                Ajibola
+              </p>
+              <p className="mt-2 font-mono text-xs text-paper/60">
+                Technical architect · eight years building software
+              </p>
             </div>
           </div>
         </div>
