@@ -1,13 +1,12 @@
-# Bamidele Consulting Site — CLAUDE.md
+# Bamidele Consulting Site (public) — CLAUDE.md
 
-Marketing + content site for Bamidele Ajibola, a Lagos technical architect who consolidates
-scattered business operations into one intelligent system. The site's one job: turn a warm
-referral into a booked call. This is NOT a developer portfolio.
+Public marketing + content site for Bamidele Ajibola, a Lagos technical architect who
+consolidates scattered business operations into one intelligent system. The site's one job:
+turn a warm referral into a booked call. This is NOT a developer portfolio.
 
-## Conversation rule
-
-Align before building (PM-first): for anything beyond a small copy or style tweak, present
-understanding + files to change + plan, and wait for confirmation.
+This repo is public and holds only the website and its published content. The content
+pipeline and internal workflow live in a separate private ops repo (`bamidele-consulting-ops`).
+Keep routine IDs, unpublished ideas, and ops notes OUT of this repo.
 
 ## Voice rules (non-negotiable, for ALL copy)
 
@@ -31,23 +30,15 @@ understanding + files to change + plan, and wait for confirmation.
 
 Tokens in `tailwind.config.ts`: `ink #11243B`, `paper #F7F6F2`, `accent #C2611B`,
 `muted #5B6B7B`, `line #E3E1D9`. Fonts: Space Grotesk (display) + Inter (body) + JetBrains
-Mono (data labels only). Motifs: subtle dotted grid, mono section labels (`01 / THE
-PROBLEM`), hairline dividers, scattered-to-one visual (`components/ScatteredToOne.tsx`).
-Reuse `Section`, `SectionLabel`, `BookButton`. One primary CTA everywhere: Book a call.
+Mono (data labels only). Motifs: subtle dotted grid, mono section labels, hairline dividers,
+scattered-to-one visual (`components/ScatteredToOne.tsx`). Reuse `Section`, `SectionLabel`,
+`BookButton`, `SiteNav`. One primary CTA everywhere: Book a call.
 
 ## Routes
 
 `/` home · `/work` + `/work/[slug]` case studies · `/services` · `/about` · `/book`
 (Cal + 5-field form) · `/blog` + `/blog/[slug]` · `/course` (placeholder).
-Content lives in `content/case-studies/*.mdx` and `content/blog/*.mdx`.
-
-## The flywheel
-
-- `content/backlog.md` is the content inbox. Work and meetings drop one-line seeds here.
-- `content-engine` skill (global): seed → drafted MDX in Bamidele's voice.
-- `workflow-scout` skill (global): monthly, web-researches improvements and proposes diffs
-  to this CLAUDE.md and the global one. Proposes, never edits silently.
-- Stop hook `.claude/hooks/content-capture.sh` nudges to log a seed when site files change.
+Content in `content/case-studies/*.mdx` and `content/blog/*.mdx` (`draft: true` hides).
 
 ## Still to supply ([TO FILL])
 

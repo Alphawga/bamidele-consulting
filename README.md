@@ -41,22 +41,12 @@ mailto handoff. Without `NEXT_PUBLIC_CAL_LINK` the booking page shows a placehol
 
 - Case studies: add an `.mdx` file to `content/case-studies/` with frontmatter
   (`title`, `summary`, `date`, `client`, `outcome`).
-- Blog: add an `.mdx` file to `content/blog/`. Set `draft: true` to hide it.
-- `content/backlog.md` is the content flywheel inbox. See the `content-engine` skill.
+- Blog: add an `.mdx` file to `content/blog/` with `title`, `summary`, `date`, `author`.
+  Set `draft: true` to hide it.
 
-## The flywheel
-
-Work and client meetings generate content seeds in `content/backlog.md`. The global
-`content-engine` skill drafts them into posts. The global `workflow-scout` skill checks the
-internet monthly and proposes upgrades to the dev workflow.
-
-To run the scout on a schedule (cloud routine, monthly):
-
-```
-/schedule create "monthly: run the workflow-scout skill and open a PR with proposed CLAUDE.md updates" --cron "0 9 1 * *"
-```
-
-(Requires the repo pushed to a GitHub remote first.)
+This is the public site repo. The content pipeline (idea backlog, daily radar) and the
+automation that feeds it live in a separate private ops repo. Finished posts are added here
+when they are ready to publish.
 
 ## Voice rules for all copy
 
