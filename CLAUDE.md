@@ -38,8 +38,8 @@ Reuse `Section`, `SectionLabel`, `BookButton`. One primary CTA everywhere: Book 
 ## Routes
 
 `/` home · `/work` + `/work/[slug]` case studies · `/services` · `/about` · `/book`
-(Cal + 5-field form) · `/insights` + `/insights/[slug]` · `/course` (placeholder).
-Content lives in `content/case-studies/*.mdx` and `content/insights/*.mdx`.
+(Cal + 5-field form) · `/blog` + `/blog/[slug]` · `/course` (placeholder).
+Content lives in `content/case-studies/*.mdx` and `content/blog/*.mdx`.
 
 ## The flywheel
 

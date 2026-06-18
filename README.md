@@ -34,14 +34,14 @@ mailto handoff. Without `NEXT_PUBLIC_CAL_LINK` the booking page shows a placehol
 | `/services` | Three offers |
 | `/about` | Story |
 | `/book` | Cal.com embed + 5-field qualifying form |
-| `/insights`, `/insights/[slug]` | Blog (MDX in `content/insights/`) |
+| `/blog`, `/blog/[slug]` | Blog (MDX in `content/blog/`) |
 | `/course` | Placeholder for the AI automation course |
 
 ## Content
 
 - Case studies: add an `.mdx` file to `content/case-studies/` with frontmatter
   (`title`, `summary`, `date`, `client`, `outcome`).
-- Insights: add an `.mdx` file to `content/insights/`. Set `draft: true` to hide it.
+- Blog: add an `.mdx` file to `content/blog/`. Set `draft: true` to hide it.
 - `content/backlog.md` is the content flywheel inbox. See the `content-engine` skill.
 
 ## The flywheel

@@ -46,5 +46,5 @@ function readOne(dir: string, slug: string): Doc | null {
 
 export const getCaseStudies = () => readCollection("case-studies");
 export const getCaseStudy = (slug: string) => readOne("case-studies", slug);
-export const getInsights = () => readCollection("insights");
-export const getInsight = (slug: string) => readOne("insights", slug);
+export const getBlogPosts = () => readCollection("blog");
+export const getBlogPost = (slug: string) => readOne("blog", slug);

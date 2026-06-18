@@ -2,19 +2,19 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
-import { getInsights } from "@/lib/content";
+import { getBlogPosts } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Blog",
   description:
-    "Notes on consolidating operations, from real builds and client work.",
+    "Field notes on consolidating operations, from real builds and client work.",
 };
 
-export default function InsightsIndex() {
-  const posts = getInsights();
+export default function BlogIndex() {
+  const posts = getBlogPosts();
   return (
     <Section>
-      <SectionLabel index="I">Insights</SectionLabel>
+      <SectionLabel index="B">Blog</SectionLabel>
       <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight">
         Notes from the work.
       </h1>
@@ -35,7 +35,7 @@ export default function InsightsIndex() {
           {posts.map((p) => (
             <Link
               key={p.slug}
-              href={`/insights/${p.slug}`}
+              href={`/blog/${p.slug}`}
               className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between"
             >
               <div>
