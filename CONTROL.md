@@ -34,7 +34,21 @@ Two ways, both fine:
 Content lives in `content/blog/*.mdx` and `content/case-studies/*.mdx`. Set `draft: true`
 in the frontmatter to hide a post. Blog frontmatter: `title`, `summary`, `date`, `author`.
 
-## 3. Self-improvement (the scout)
+## 3. Daily content radar (what to post about)
+
+Each morning a cloud routine browses the web for 5 to 7 fresh things you can post about on
+LinkedIn or write up: oil and gas procurement and supply chain, AI in operations, Nigerian
+business and fintech, and broad interesting signals.
+
+- It opens a daily PR titled "Content radar — <date>", so you get a GitHub notification you
+  can read from your phone. The digest is in the PR body and in `content/radar/<date>.md`.
+- The 2-3 strongest picks are added to `content/backlog.md`. To act on one, just say
+  "draft the blog post about X" and the `content-engine` skill writes it in your voice.
+- Manage it: https://claude.ai/code/routines/trig_01NRLH2YSyLEQozwHrryUZfw
+- Runs ~7:15am Lagos daily. To run on demand locally, ask Claude to "scan for content ideas"
+  (content-engine radar mode).
+
+## 4. Self-improvement (the scout)
 
 - On demand: type `/workflow-scout` or ask Claude to scout for workflow improvements. It
   researches and proposes changes. Nothing applies without your approval.
