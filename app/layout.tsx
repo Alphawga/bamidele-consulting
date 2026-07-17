@@ -1,23 +1,41 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter, IBM_Plex_Mono, Bricolage_Grotesque, Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ChromeGate from "@/components/nav/ChromeGate";
 import { site } from "@/lib/site";
 
-const display = Space_Grotesk({
+const display = Fraunces({
   subsets: ["latin"],
+  weight: ["400", "600"],
   variable: "--font-display",
   display: "swap",
 });
 const sans = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-sans",
   display: "swap",
 });
-const mono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-mono",
+  display: "swap",
+});
+// Aso-Oke typefaces — scoped via CSS var, consumed by AsoOkeHome.module.css
+// and the shared components/asoOke/AsoOkeShell.module.css.
+const asoDisplay = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-aso-display",
+  display: "swap",
+});
+const asoBody = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-aso-body",
   display: "swap",
 });
 
@@ -45,11 +63,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="min-h-screen grid-backdrop">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable} ${asoDisplay.variable} ${asoBody.variable}`}
+    >
+      <body className="min-h-screen">
+        <ChromeGate>{children}</ChromeGate>
+        <Analytics />
       </body>
     </html>
   );

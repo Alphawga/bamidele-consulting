@@ -20,7 +20,7 @@ export function generateMetadata({
   if (!post) return {};
   return {
     title: post.frontmatter.title,
-    description: post.frontmatter.summary,
+    description: post.frontmatter.excerpt,
   };
 }
 
@@ -33,24 +33,28 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       <Link href="/blog" className="font-mono text-xs text-muted hover:text-ink">
         ← Blog
       </Link>
-      <h1 className="mt-8 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight">
+      <p className="mt-8 font-mono text-xs uppercase tracking-label text-accent">
+        {post.frontmatter.category}
+      </p>
+      <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight">
         {post.frontmatter.title}
       </h1>
       <p className="mt-3 font-mono text-xs text-muted">
         {post.frontmatter.author ?? "Bamidele Ajibola"}
         {post.frontmatter.date ? ` · ${post.frontmatter.date}` : ""}
+        {post.frontmatter.readTime ? ` · ${post.frontmatter.readTime}` : ""}
       </p>
       <div className="mt-10 max-w-2xl">
         <Prose>
           <MDXRemote source={post.content} />
         </Prose>
       </div>
-      <div className="mt-16 max-w-2xl rounded-md border border-line bg-ink px-8 py-10 text-paper">
+      <div className="mt-16 max-w-2xl rounded-lg border border-line bg-paper-card-elevated px-8 py-10">
         <h2 className="font-display text-2xl font-bold">
-          Want this for your operation?
+          Where does your operation stand?
         </h2>
-        <p className="mt-3 text-paper/70">
-          A short call to see if it is a fit. No pressure.
+        <p className="mt-3 text-muted">
+          Take the free audit and get a diagnostic built from your actual answers.
         </p>
         <div className="mt-6">
           <BookButton />

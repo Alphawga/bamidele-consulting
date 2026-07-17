@@ -6,7 +6,7 @@ type Props = {
 export default function SectionLabel({ index, children }: Props) {
   return (
     <p className="label mb-4 flex items-center gap-3">
-      {index ? <span className="text-accent">{index}</span> : null}
+      {index ? <span className="text-brass">{index}</span> : null}
       <span>{children}</span>
     </p>
   );

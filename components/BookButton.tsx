@@ -4,22 +4,23 @@ type Props = {
   children?: React.ReactNode;
   variant?: "solid" | "ghost";
   className?: string;
+  href?: string;
 };
 
 export default function BookButton({
-  children = "Book a call",
+  children = "Take the audit",
   variant = "solid",
   className = "",
+  href = "/audit",
 }: Props) {
   const base =
-    "inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-medium transition-colors";
+    "inline-flex items-center px-5 py-3 font-mono text-sm font-medium uppercase tracking-label transition-colors";
   const styles =
     variant === "solid"
-      ? "bg-accent text-paper hover:bg-accent-ink"
-      : "border border-ink/20 text-ink hover:border-accent hover:text-accent";
+      ? "bg-brass text-ink hover:bg-paper"
+      : "border border-steel text-paper hover:border-brass hover:text-brass";
   return (
-    <Link href="/book" className={`${base} ${styles} ${className}`}>
-      <span aria-hidden className="font-mono">▸</span>
+    <Link href={href} className={`${base} ${styles} ${className}`}>
       {children}
     </Link>
   );

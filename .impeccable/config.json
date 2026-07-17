@@ -1,0 +1,12 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [
+      "components/homepage/AsoOkeHome.module.css",
+      "components/asoOke/AsoOkeShell.module.css",
+      "components/asoOke/ConsultingPage.module.css",
+      "components/asoOke/**"
+    ],
+    "ignoreValues": []
+  }
+}

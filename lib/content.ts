@@ -4,11 +4,11 @@ import matter from "gray-matter";
 
 export type Frontmatter = {
   title: string;
-  summary: string;
+  excerpt: string;
+  category: string;
   date?: string;
+  readTime?: string;
   author?: string;
-  client?: string;
-  outcome?: string;
   draft?: boolean;
 };
 
@@ -29,9 +29,10 @@ function readCollection(dir: string): Doc[] {
     .map((file) => {
       const raw = fs.readFileSync(path.join(full, file), "utf8");
       const { data, content } = matter(raw);
+      const frontmatter = data as Frontmatter;
       return {
         slug: file.replace(/\.mdx$/, ""),
-        frontmatter: data as Frontmatter,
+        frontmatter: { ...frontmatter, category: frontmatter.category || "Uncategorized" },
         content,
       };
     })
@@ -45,7 +46,7 @@ function readOne(dir: string, slug: string): Doc | null {
   return readCollection(dir).find((d) => d.slug === slug) ?? null;
 }
 
-export const getCaseStudies = () => readCollection("case-studies");
-export const getCaseStudy = (slug: string) => readOne("case-studies", slug);
 export const getBlogPosts = () => readCollection("blog");
 export const getBlogPost = (slug: string) => readOne("blog", slug);
+export const getBlogCategories = () =>
+  Array.from(new Set(getBlogPosts().map((p) => p.frontmatter.category)));
