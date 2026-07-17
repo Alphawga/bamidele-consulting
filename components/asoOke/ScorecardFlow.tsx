@@ -10,17 +10,18 @@ import {
 } from "@/lib/scorecard";
 import { alphawga } from "@/lib/alphawga";
 import TrackedCta from "./TrackedCta";
+import SeamMark from "./SeamMark";
 import shell from "./AsoOkeShell.module.css";
 import styles from "./ScorecardFlow.module.css";
 
-type Step = "questions" | "contact" | "result";
+type Step = "intro" | "questions" | "contact" | "result";
 type Status = "idle" | "submitting" | "error";
 
 const totalQuestions = scorecardQuestions.length;
 const answerValues: ScorecardAnswerValue[] = [1, 2, 3, 4, 5];
 
 export default function ScorecardFlow() {
-  const [step, setStep] = useState<Step>("questions");
+  const [step, setStep] = useState<Step>("intro");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Partial<Record<number, ScorecardAnswerValue>>>({});
   const [name, setName] = useState("");
@@ -30,6 +31,10 @@ export default function ScorecardFlow() {
   const [result, setResult] = useState<ScorecardResult | null>(null);
 
   const question = scorecardQuestions[questionIndex];
+
+  function startQuiz() {
+    setStep("questions");
+  }
 
   function selectAnswer(value: ScorecardAnswerValue) {
     const next = { ...answers, [questionIndex]: value };
@@ -68,6 +73,33 @@ export default function ScorecardFlow() {
     } catch {
       setStatus("error");
     }
+  }
+
+  if (step === "intro") {
+    return (
+      <div className={`${shell.card} ${styles.introCard}`}>
+        <div className={`${shell.slabel} ${shell.rise} ${shell.riseA}`}>
+          <SeamMark />
+          Free scorecard
+        </div>
+        <h1 className={`${styles.introH1} ${shell.rise} ${shell.riseB}`}>
+          Find your leaks
+          <br />
+          <span className={shell.wn}>in 10 minutes.</span>
+        </h1>
+        <p className={`${styles.introLede} ${shell.rise} ${shell.riseC}`}>
+          Find out where your business is leaking money in 10 minutes. 20 questions. Answer
+          honestly, nobody sees this but you.
+        </p>
+        <button
+          type="button"
+          onClick={startQuiz}
+          className={`${shell.btnp} ${styles.introStart} ${shell.rise} ${shell.riseD}`}
+        >
+          Start →
+        </button>
+      </div>
+    );
   }
 
   if (step === "result" && result) {
@@ -161,17 +193,16 @@ export default function ScorecardFlow() {
         Question {questionIndex + 1} of {totalQuestions} · {question.section}
       </p>
       <h2 className={styles.prompt}>{question.prompt}</h2>
-      <div className={styles.optionRow}>
+      <div className={styles.optionList}>
         {answerValues.map((value) => (
           <button
             key={value}
             type="button"
             onClick={() => selectAnswer(value)}
-            className={`${styles.optionBtn} ${answers[questionIndex] === value ? styles.optionSelected : ""}`}
+            className={`${styles.optionItem} ${answers[questionIndex] === value ? styles.optionSelected : ""}`}
           >
-            <span className={styles.optionValue}>{value}</span>
-            {value === 1 ? <span className={styles.optionLabel}>{question.lowLabel}</span> : null}
-            {value === 5 ? <span className={styles.optionLabel}>{question.highLabel}</span> : null}
+            <span className={styles.optionBadge}>{value}</span>
+            <span className={styles.optionText}>{question.options[value - 1]}</span>
           </button>
         ))}
       </div>

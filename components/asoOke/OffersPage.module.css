@@ -18,6 +18,12 @@
 .lede {
   max-width: 620px;
 }
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(24px, 3vw, 32px);
+}
 
 .body {
   max-width: 1232px;

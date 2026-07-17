@@ -235,6 +235,9 @@ a.btnsec:hover {
 .slabel.r3 {
   display: flex;
 }
+.heroCtas.r3 {
+  display: flex;
+}
 .r3a {
   animation-delay: 0.08s;
 }
@@ -451,33 +454,45 @@ a.btnsec:hover {
   color: var(--oxblood);
   margin: 12px 0 0;
 }
-.workCardLg {
-  grid-column: span 2;
-}
 
 .qualifier {
   font-size: 15.5px;
   color: var(--muted);
   margin: -14px 0 34px;
 }
-.fitGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+
+/* "who this is for" — a hairline spec list, deliberately not another card
+   grid, so it doesn't read as a repeat of the offers cards above it. */
+.fitList {
+  margin-top: 34px;
+  border-top: 1px solid var(--border);
 }
-.fitCard {
-  background: var(--cream);
-  border: 1px solid var(--border);
-  padding: 28px 26px;
+.fitRow {
+  display: flex;
+  gap: 32px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
 }
-.fitTitle {
+.fitNum {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--oxblood);
+  flex: 0 0 auto;
+  width: 34px;
+}
+.fitRowTitle {
+  flex: 0 0 auto;
+  width: 300px;
   margin: 0;
 }
-.fitBody {
+.fitRowBody {
+  flex: 1;
   font-size: 16px;
   line-height: 1.6;
   color: var(--body-text);
-  margin: 10px 0 0;
+  margin: 0;
 }
 
 .closingBand {
@@ -649,8 +664,13 @@ a.btnsec:hover {
   .pathtop {
     margin: -26px -22px 20px;
   }
-  .workCardLg {
-    grid-column: span 1;
+  .fitRow {
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 0;
+  }
+  .fitRowTitle {
+    width: auto;
   }
   .scrollhint {
     margin-top: 24px;

@@ -7,7 +7,6 @@ import shell from "./AsoOkeShell.module.css";
 import styles from "./ContactPage.module.css";
 
 const FACTS = [
-  { k: "Based in", v: "Lagos, Nigeria" },
   { k: "Response", v: "Within 24 hours, business days" },
   { k: "Diagnostic fee", v: "₦10,000, comes off your Systems Audit price within 7 days" },
   { k: "Best for", v: "Procurement, supply chain, oil and gas services" },

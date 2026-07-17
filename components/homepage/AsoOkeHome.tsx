@@ -79,6 +79,7 @@ function ease(t: number) {
 export default function AsoOkeHome() {
   const reduced = useReducedMotion();
 
+  const rootRef = useRef<HTMLDivElement>(null);
   const bandRef = useRef<HTMLDivElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
   const shineRef = useRef<HTMLDivElement>(null);
@@ -265,11 +266,11 @@ export default function AsoOkeHome() {
         card.addEventListener("pointerleave", onLeave);
       });
     },
-    { scope: weaveWrapRef, dependencies: [reduced] }
+    { scope: rootRef, dependencies: [reduced] }
   );
 
   return (
-    <div className={styles.root}>
+    <div ref={rootRef} className={styles.root}>
       <div ref={bandRef} className={styles.sband} />
 
       <AsoOkeNav />
@@ -438,6 +439,10 @@ export default function AsoOkeHome() {
           <SeamMark />
           The work
         </div>
+        <p className={`${styles.qualifier} ${styles.rv}`}>
+          Four steps, from a ₦10,000 call to a senior systems head on your team. Start
+          wherever makes sense.
+        </p>
         <div className={styles.pathgrid}>
           {OFFER_CARDS.map((offer, i) => (
             <div
@@ -445,7 +450,7 @@ export default function AsoOkeHome() {
               ref={(el) => {
                 workCardRefs.current[i] = el;
               }}
-              className={`${styles.pathcard} ${styles.rv} ${i === 0 ? styles.workCardLg : ""} ${
+              className={`${styles.pathcard} ${styles.rv} ${
                 i === 0 ? styles.dl1 : i === 1 ? styles.dl2 : styles.dl3
               }`}
             >
@@ -461,30 +466,11 @@ export default function AsoOkeHome() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className={`${styles.container} ${styles.sec}`} id="who-for">
-        <div className={`${styles.slabel} ${styles.rv}`}>
-          <SeamMark />
-          Who this is for
-        </div>
-        <p className={`${styles.qualifier} ${styles.rv}`}>
-          Best fit: operations doing ₦5M+ monthly where the leaks are already costing real
-          money.
+        <p className={`${styles.pathlink} ${styles.rv}`} style={{ marginTop: 36 }}>
+          <Link href="/offers" className={styles.btnsec}>
+            See all offers →
+          </Link>
         </p>
-        <div className={styles.fitGrid}>
-          {FITS.map((fit, i) => (
-            <div
-              key={fit.title}
-              className={`${styles.fitCard} ${styles.rv} ${
-                i === 0 ? styles.dl1 : i === 1 ? styles.dl2 : styles.dl3
-              }`}
-            >
-              <h3 className={`${styles.h3s} ${styles.fitTitle}`}>{fit.title}</h3>
-              <p className={styles.fitBody}>{fit.body}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className={styles.closingBand}>
@@ -500,6 +486,31 @@ export default function AsoOkeHome() {
         >
           Book the diagnostic →
         </TrackedCta>
+      </section>
+
+      <section className={`${styles.container} ${styles.sec}`} id="who-for">
+        <div className={`${styles.slabel} ${styles.rv}`}>
+          <SeamMark />
+          Who this is for
+        </div>
+        <p className={`${styles.qualifier} ${styles.rv}`}>
+          Best fit: operations doing ₦5M+ monthly where the leaks are already costing real
+          money.
+        </p>
+        <div className={styles.fitList}>
+          {FITS.map((fit, i) => (
+            <div
+              key={fit.title}
+              className={`${styles.fitRow} ${styles.rv} ${
+                i === 0 ? styles.dl1 : i === 1 ? styles.dl2 : styles.dl3
+              }`}
+            >
+              <div className={styles.fitNum}>{`0${i + 1}`}</div>
+              <h3 className={`${styles.h3s} ${styles.fitRowTitle}`}>{fit.title}</h3>
+              <p className={styles.fitRowBody}>{fit.body}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <AsoOkeFooter />

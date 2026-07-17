@@ -98,6 +98,16 @@ export default function OffersPage() {
           That is the result. Four steps get you there. The first costs ₦10K, and every step
           earns the next. No retainers you can&apos;t explain to your accountant.
         </p>
+        <div className={`${styles.heroCtas} ${shell.rise} ${shell.riseD}`}>
+          <TrackedCta
+            href={alphawga.calDiagnosticUrl}
+            className={shell.btnp}
+            event="diagnostic_cta_click"
+            data={{ location: "offers_hero" }}
+          >
+            Book the ₦10K diagnostic →
+          </TrackedCta>
+        </div>
       </header>
 
       <section className={styles.body}>
