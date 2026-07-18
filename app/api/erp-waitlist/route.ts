@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSupabase } from "@/lib/supabase";
+import { prisma } from "@/lib/prisma";
 
 type Payload = {
   fullName?: string;
@@ -45,20 +45,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Team size required" }, { status: 422 });
   }
 
-  const supabase = getSupabase();
-  if (supabase) {
-    const { error } = await supabase.from("erp_waitlist").insert({
-      full_name: fullName,
-      company_name: companyName,
-      role,
-      email,
-      whatsapp,
-      industry,
-      team_size: teamSize,
-      current_tooling: currentTooling || null,
-      source: source ?? null,
+  try {
+    await prisma.erpWaitlist.create({
+      data: {
+        fullName,
+        companyName,
+        role,
+        email,
+        whatsapp,
+        industry,
+        teamSize,
+        currentTooling: currentTooling || null,
+        source: source ?? null,
+      },
     });
-    if (error) console.error("Supabase insert failed for /api/erp-waitlist:", error);
+  } catch (error) {
+    console.error("Prisma insert failed for /api/erp-waitlist:", error);
   }
 
   const apiKey = process.env.RESEND_API_KEY;

@@ -29,7 +29,10 @@ via the `/audit` lead magnet as the primary conversion path.
 - Next.js 14 App Router + TypeScript + Tailwind. MDX via `next-mdx-remote` + `gray-matter`.
 - Resend (audit/waitlist email capture). Cal.com embed (booking, inline on `/okoh` and
   `/audit`, no standalone `/book` page). Deploy: Vercel.
-- No database. Keep it static and fast. Lighthouse target 95+ on mobile.
+- Prisma + Postgres (Vercel Postgres) for lead persistence only, on the `erp_waitlist` and
+  `scorecard_leads` tables (`app/api/erp-waitlist`, `app/api/scorecard`). `/audit` and
+  `/api/waitlist` stay email-only via Resend, no DB write. Site rendering itself is still
+  static, no database read on any page. Lighthouse target 95+ on mobile.
 
 ## Design system
 

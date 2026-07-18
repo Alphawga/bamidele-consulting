@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ErpWaitlist {
+  id             String   @id @default(cuid())
+  fullName       String
+  companyName    String
+  role           String
+  email          String
+  whatsapp       String
+  industry       String
+  teamSize       String
+  currentTooling String?
+  source         String?
+  createdAt      DateTime @default(now())
+
+  @@map("erp_waitlist")
+}
+
+model ScorecardLead {
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  whatsapp       String?
+  totalScore     Int
+  band           String
+  sectionScores  Json
+  weakestSection String
+  source         String   @default("scorecard")
+  createdAt      DateTime @default(now())
+
+  @@map("scorecard_leads")
+}

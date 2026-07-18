@@ -53,6 +53,13 @@
 }
 
 .container {
+  /* explicit width, not just margin:0 auto: .container is used as a flex
+     item inside column-flex sticky sections (.weavestick, .proofcard). Auto
+     margins on a flex item suppress cross-axis stretch, so without a
+     definite width it shrink-wraps to its widest descendant (e.g.
+     .stripstack's 780px) instead of clamping to the viewport, overflowing
+     on mobile. */
+  width: 100%;
   max-width: 1232px;
   margin: 0 auto;
   padding: 0 64px;

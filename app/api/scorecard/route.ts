@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isValidScorecardAnswers, scoreScorecard } from "@/lib/scorecard";
-import { getSupabase } from "@/lib/supabase";
+import { prisma } from "@/lib/prisma";
 
 type Payload = {
   name?: string;
@@ -30,18 +30,20 @@ export async function POST(req: Request) {
 
   const result = scoreScorecard(answers);
 
-  const supabase = getSupabase();
-  if (supabase) {
-    const { error } = await supabase.from("scorecard_leads").insert({
-      name,
-      email,
-      whatsapp: whatsapp || null,
-      total_score: result.total,
-      band: result.band.name,
-      section_scores: result.sectionScores,
-      source: "scorecard",
+  try {
+    await prisma.scorecardLead.create({
+      data: {
+        name,
+        email,
+        whatsapp: whatsapp || null,
+        totalScore: result.total,
+        band: result.band.name,
+        sectionScores: result.sectionScores,
+        weakestSection: result.weakestSection,
+      },
     });
-    if (error) console.error("Supabase insert failed for /api/scorecard:", error);
+  } catch (error) {
+    console.error("Prisma insert failed for /api/scorecard:", error);
   }
 
   const apiKey = process.env.RESEND_API_KEY;
