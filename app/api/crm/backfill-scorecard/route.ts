@@ -5,12 +5,15 @@ export const dynamic = "force-dynamic";
 
 export async function POST() {
   try {
+    const existingCrmLeads = await prisma.crmLead.findMany({
+      select: { email: true },
+    });
+    const existingEmails = existingCrmLeads.map((lead) => lead.email);
+
     const scorecardLeads = await prisma.scorecardLead.findMany({
       where: {
         email: {
-          notIn: await prisma.crmLead
-            .findMany({ select: { email: true } })
-            .then((rows) => rows.map((r) => r.email)),
+          notIn: existingEmails,
         },
       },
     });

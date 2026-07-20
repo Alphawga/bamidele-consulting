@@ -40,6 +40,7 @@ const asoBody = Newsreader({
   style: ["normal", "italic"],
   variable: "--font-aso-body",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
