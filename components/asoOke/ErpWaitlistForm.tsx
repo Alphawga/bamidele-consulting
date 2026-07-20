@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/track";
 import shell from "./AsoOkeShell.module.css";
 import styles from "./ErpWaitlistForm.module.css";
 
@@ -41,7 +41,7 @@ export default function ErpWaitlistForm() {
         }),
       });
       if (!res.ok) throw new Error("request failed");
-      track("erp_waitlist_submit");
+      trackEvent("erp_waitlist_submit");
       setStatus("done");
     } catch {
       setStatus("error");

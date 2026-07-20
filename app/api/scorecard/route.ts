@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import { isValidScorecardAnswers, scoreScorecard } from "@/lib/scorecard";
 import { prisma } from "@/lib/prisma";
+import { buildNotificationEmail } from "@/lib/email";
+
+const bandTone: Record<string, "forest" | "gold" | "oxblood"> = {
+  Consolidated: "forest",
+  "Held together by heroes": "gold",
+  "Leaking daily": "oxblood",
+  "Flying blind": "oxblood",
+};
 
 type Payload = {
   name?: string;
@@ -30,8 +38,9 @@ export async function POST(req: Request) {
 
   const result = scoreScorecard(answers);
 
+  let scorecardLead;
   try {
-    await prisma.scorecardLead.create({
+    scorecardLead = await prisma.scorecardLead.create({
       data: {
         name,
         email,
@@ -46,6 +55,32 @@ export async function POST(req: Request) {
     console.error("Prisma insert failed for /api/scorecard:", error);
   }
 
+  if (scorecardLead) {
+    const scorecardNote = `Scorecard: ${result.total}/100 (${result.band.name}). Weakest section: ${result.weakestSection}.`;
+    try {
+      const existingCrmLead = await prisma.crmLead.findFirst({ where: { email } });
+      if (existingCrmLead) {
+        await prisma.crmActivity.create({
+          data: { leadId: existingCrmLead.id, type: "scorecard", notes: `Retook scorecard. ${scorecardNote}` },
+        });
+      } else {
+        await prisma.crmLead.create({
+          data: {
+            name,
+            email,
+            whatsapp: whatsapp || null,
+            source: "scorecard",
+            stage: "scorecard",
+            scorecardId: scorecardLead.id,
+            notes: scorecardNote,
+          },
+        });
+      }
+    } catch (error) {
+      console.error("CRM lead sync failed for /api/scorecard:", error);
+    }
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey) {
     const { Resend } = await import("resend");
@@ -57,6 +92,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from,
       to: notifyTo,
+      replyTo: email,
       subject: `New scorecard lead: ${result.total}/100 (${result.band.name})`,
       text: [
         `Name: ${name}`,
@@ -66,6 +102,21 @@ export async function POST(req: Request) {
         `Band: ${result.band.name}`,
         `Weakest section: ${result.weakestSection}`,
       ].join("\n"),
+      html: buildNotificationEmail({
+        eyebrow: "alphawga.com / scorecard",
+        title: `New scorecard lead: ${name}`,
+        badge: {
+          label: result.band.name,
+          value: `${result.total} / 100`,
+          tone: bandTone[result.band.name] ?? "oxblood",
+        },
+        rows: [
+          { label: "Name", value: name },
+          { label: "Email", value: email },
+          { label: "WhatsApp", value: whatsapp || "not provided" },
+          { label: "Weakest section", value: result.weakestSection },
+        ],
+      }),
     });
     if (error) console.error("Resend send failed for /api/scorecard:", error);
   }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/track";
 import SeamMark from "./SeamMark";
 import { alphawga } from "@/lib/alphawga";
 import styles from "./AsoOkeShell.module.css";
@@ -37,9 +37,10 @@ export default function AsoOkeNav() {
       <a
         href={alphawga.calDiagnosticUrl}
         className={`${styles.btnsec} ${styles.navCta}`}
-        onClick={() => track("diagnostic_cta_click", { location: "nav" })}
+        onClick={() => trackEvent("diagnostic_cta_click", { location: "nav" })}
       >
-        Book the ₦10K diagnostic
+        <span className={styles.navCtaFull}>Book the ₦10K diagnostic</span>
+        <span className={styles.navCtaShort}>Book diagnostic</span>
       </a>
     </nav>
   );

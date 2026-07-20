@@ -11,6 +11,14 @@ export default function AsoOkeFooter() {
           {alphawga.name}
         </div>
         <span className={`${styles.mono} ${styles.founderLine}`}>Founded by {alphawga.founder}</span>
+        <a
+          href={alphawga.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.mono} ${styles.footerLink}`}
+        >
+          LinkedIn
+        </a>
         <span className={styles.fr}>Lagos, NG · est. 2018</span>
       </div>
       <div className={styles.sband2} />

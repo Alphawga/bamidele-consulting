@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { buildNotificationEmail } from "@/lib/email";
 
 type Payload = {
   email?: string;
@@ -28,8 +29,17 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from,
       to,
+      replyTo: email,
       subject: `New waitlist signup${source ? ` (${source})` : ""}`,
       text: `Email: ${email}\nSource: ${source ?? "unknown"}`,
+      html: buildNotificationEmail({
+        eyebrow: "alphawga.com",
+        title: "New waitlist signup",
+        rows: [
+          { label: "Email", value: email },
+          { label: "Source", value: source ?? "unknown" },
+        ],
+      }),
     });
     if (error) {
       console.error("Resend send failed for /api/waitlist:", error);

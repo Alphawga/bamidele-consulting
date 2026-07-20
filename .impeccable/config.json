@@ -5,7 +5,8 @@
       "components/homepage/AsoOkeHome.module.css",
       "components/asoOke/AsoOkeShell.module.css",
       "components/asoOke/ConsultingPage.module.css",
-      "components/asoOke/**"
+      "components/asoOke/**",
+      "lib/email.ts"
     ],
     "ignoreValues": []
   }

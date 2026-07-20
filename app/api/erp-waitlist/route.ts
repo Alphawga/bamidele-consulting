@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { buildNotificationEmail } from "@/lib/email";
 
 type Payload = {
   fullName?: string;
@@ -73,6 +74,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from,
       to,
+      replyTo: email,
       subject: `New Okoh ERP waitlist signup: ${companyName}`,
       text: [
         `Full name: ${fullName}`,
@@ -84,6 +86,20 @@ export async function POST(req: Request) {
         `Team size: ${teamSize}`,
         `Current tooling: ${currentTooling || "not provided"}`,
       ].join("\n"),
+      html: buildNotificationEmail({
+        eyebrow: "alphawga.com / okoh erp",
+        title: `New Okoh ERP waitlist signup: ${companyName}`,
+        rows: [
+          { label: "Full name", value: fullName },
+          { label: "Company", value: companyName },
+          { label: "Role", value: role },
+          { label: "Email", value: email },
+          { label: "WhatsApp", value: whatsapp },
+          { label: "Industry", value: industry },
+          { label: "Team size", value: teamSize },
+          { label: "Current tooling", value: currentTooling || "not provided" },
+        ],
+      }),
     });
     if (error) console.error("Resend send failed for /api/erp-waitlist:", error);
   }

@@ -13,8 +13,12 @@ const BARE_PATHS = new Set([
   "/scorecard",
 ]);
 
+// Internal admin tool: owns its own full-width header, no public site chrome.
+const BARE_PREFIXES = ["/admin"];
+
 export default function ChromeGate({ children }: { children: React.ReactNode }) {
-  const bare = BARE_PATHS.has(usePathname());
+  const pathname = usePathname();
+  const bare = BARE_PATHS.has(pathname) || BARE_PREFIXES.some((p) => pathname.startsWith(p));
 
   if (bare) return <main>{children}</main>;
 

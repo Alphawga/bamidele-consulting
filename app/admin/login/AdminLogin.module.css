@@ -1,0 +1,113 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.wordmark {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.eyebrow {
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 380px;
+  padding: 30px 30px 34px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.input {
+  font-family: var(--font-aso-body), serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 2px;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--oxblood);
+}
+
+.error {
+  color: var(--oxblood);
+  font-size: 14px;
+  margin: 12px 0 0;
+}
+
+.submitBtn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--oxblood);
+  color: var(--cream);
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 24px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.25s, transform 0.25s;
+}
+.submitBtn:hover:not(:disabled) {
+  background: var(--oxblood-dark);
+  transform: translateY(-2px);
+}
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.backLink {
+  margin-top: 28px;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--hint);
+  text-decoration: none !important;
+}
+.backLink:hover {
+  color: var(--oxblood) !important;
+}

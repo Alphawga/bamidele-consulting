@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
-import { auditQuestions, diagnoseOperation, isValidAnswers, type AuditAnswers } from "@/lib/audit";
+import { auditQuestions, diagnoseOperation, isValidAnswers, type AuditAnswers, type AuditTier } from "@/lib/audit";
+import { buildNotificationEmail } from "@/lib/email";
+
+const tierTone: Record<AuditTier, "forest" | "gold" | "oxblood"> = {
+  consolidated: "forest",
+  fragmenting: "gold",
+  fragmented: "oxblood",
+  critical: "oxblood",
+};
 
 type Payload = {
   email?: string;
@@ -42,8 +50,23 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from,
       to,
+      replyTo: email,
       subject: `New operations audit from ${email}`,
       text,
+      html: buildNotificationEmail({
+        eyebrow: "alphawga.com / audit",
+        title: `New operations audit from ${email}`,
+        badge: {
+          label: result.tier,
+          value: `${result.score} / ${result.maxScore}`,
+          tone: tierTone[result.tier],
+        },
+        rows: [{ label: "Email", value: email }],
+        longRows: auditQuestions.map((q) => ({
+          label: q.prompt,
+          value: q.options.find((opt) => opt.value === answers[q.key])?.label ?? answers[q.key],
+        })),
+      }),
     });
     // The visitor's diagnostic is computed locally and doesn't depend on this
     // notification reaching the site owner, so a Resend failure here is logged

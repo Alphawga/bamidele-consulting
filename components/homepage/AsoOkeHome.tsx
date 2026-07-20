@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/track";
 import { gsap, ScrollTrigger } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 import { alphawga } from "@/lib/alphawga";
@@ -61,7 +61,7 @@ const FITS = [
   },
   {
     title: "Growing ops teams (10–200 staff)",
-    body: "Big enough that the patchwork hurts, small enough that a ready-made ERP would drown you. Exactly who we build one system that holds for.",
+    body: "Big enough that the patchwork hurts, small enough that a ready-made ERP would drown you. Exactly who we build for: one system that holds.",
   },
 ];
 
@@ -295,14 +295,14 @@ export default function AsoOkeHome() {
             <a
               href={alphawga.calDiagnosticUrl}
               className={styles.btnp}
-              onClick={() => track("diagnostic_cta_click", { location: "home_hero" })}
+              onClick={() => trackEvent("diagnostic_cta_click", { location: "home_hero" })}
             >
               Book the ₦10K diagnostic →
             </a>
             <Link
               href="/scorecard"
               className={styles.btnsec}
-              onClick={() => track("scorecard_link_click", { location: "home_hero" })}
+              onClick={() => trackEvent("scorecard_link_click", { location: "home_hero" })}
             >
               Take the free self-audit
             </Link>
@@ -395,7 +395,7 @@ export default function AsoOkeHome() {
                       }}
                       data-to="500"
                     >
-                      0
+                      500
                     </span>
                     +
                   </div>
@@ -409,7 +409,7 @@ export default function AsoOkeHome() {
                       }}
                       data-to="5"
                     >
-                      0
+                      5
                     </span>
                   </div>
                   <div className={styles.statl}>tools retired</div>
@@ -422,7 +422,7 @@ export default function AsoOkeHome() {
                       }}
                       data-to="6"
                     >
-                      0
+                      6
                     </span>
                     +
                   </div>
@@ -440,8 +440,8 @@ export default function AsoOkeHome() {
           The work
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          Four steps, from a ₦10,000 call to a senior systems head on your team. Start
-          wherever makes sense.
+          Three ways to go deeper, from the ₦10,000 call to a senior systems head on your
+          team. Start wherever makes sense.
         </p>
         <div className={styles.pathgrid}>
           {OFFER_CARDS.map((offer, i) => (

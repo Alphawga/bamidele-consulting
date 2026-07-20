@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model ErpWaitlist {
@@ -36,4 +37,49 @@ model ScorecardLead {
   createdAt      DateTime @default(now())
 
   @@map("scorecard_leads")
+}
+
+model CrmLead {
+  id              String        @id @default(cuid())
+  name            String
+  company         String?
+  email           String
+  whatsapp        String?
+  source          String        @default("outreach")
+  stage           String        @default("lead")
+  value           Int?
+  scorecardId     String?       @unique
+  lastContactDate DateTime?
+  nextAction      String?
+  nextActionDate  DateTime?
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  activities      CrmActivity[]
+
+  @@map("crm_leads")
+}
+
+model CrmActivity {
+  id        String   @id @default(cuid())
+  leadId    String
+  type      String
+  notes     String
+  createdAt DateTime @default(now())
+  lead      CrmLead  @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@map("crm_activities")
+}
+
+model AuditPayment {
+  id         String   @id @default(cuid())
+  reference  String   @unique
+  email      String
+  amountKobo Int
+  status     String   @default("pending")
+  answers    Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("audit_payments")
 }

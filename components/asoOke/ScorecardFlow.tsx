@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/track";
 import {
   scorecardQuestions,
   scoreScorecard,
@@ -67,7 +67,7 @@ export default function ScorecardFlow() {
       const body = await res.json();
       if (!res.ok) throw new Error(body?.error ?? "Failed");
       setResult(body.result ?? scoreScorecard(answerList));
-      track("scorecard_submit");
+      trackEvent("scorecard_submit");
       setStep("result");
       setStatus("idle");
     } catch {

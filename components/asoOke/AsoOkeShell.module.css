@@ -135,6 +135,10 @@
   margin-left: 34px;
   padding: 11px 20px;
   font-size: 14px;
+  white-space: nowrap;
+}
+.navCtaShort {
+  display: none;
 }
 
 .seam {
@@ -331,6 +335,15 @@ a.btngold:hover {
   font-size: 11px;
   letter-spacing: 0.1em;
 }
+.footerLink {
+  color: var(--hint);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+.footerLink:hover {
+  color: var(--oxblood);
+}
 
 /* mount-in entrance for interior-page heroes — simpler than Home's (no
    rotateX), matches the prototypes' own rise3d keyframe exactly. */
@@ -387,6 +400,12 @@ a.btngold:hover {
     margin-left: auto !important;
     padding: 10px 16px !important;
     font-size: 13px !important;
+  }
+  .navCtaFull {
+    display: none;
+  }
+  .navCtaShort {
+    display: inline;
   }
   .wordmark {
     font-size: 16px;

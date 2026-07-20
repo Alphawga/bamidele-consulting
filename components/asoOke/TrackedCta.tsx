@@ -1,6 +1,6 @@
 "use client";
 
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/track";
 
 type Props = {
   href: string;
@@ -12,7 +12,7 @@ type Props = {
 
 export default function TrackedCta({ href, className, children, event, data }: Props) {
   return (
-    <a href={href} className={className} onClick={() => track(event, data)}>
+    <a href={href} className={className} onClick={() => trackEvent(event, data)}>
       {children}
     </a>
   );
