@@ -6,6 +6,8 @@ import { auditQuestions, diagnoseOperation, type AuditAnswers, type AuditResult 
 import { site } from "@/lib/site";
 import { trackEvent } from "@/lib/track";
 import CalEmbed from "./CalEmbed";
+import shell from "./asoOke/AsoOkeShell.module.css";
+import styles from "./AuditFlow.module.css";
 
 type Step = "questions" | "email" | "result";
 type Status = "idle" | "sending" | "error";
@@ -122,21 +124,49 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
     }
   }
 
-  if (step === "result" && (result || variant === "checkout")) {
+  if (step === "result" && variant === "checkout") {
+    return (
+      <div className={`${shell.card} ${styles.resultCard}`}>
+        <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
+        <p className={styles.resultLede}>Book your ₦{site.auditPriceNgn} diagnostic call.</p>
+
+        <div className={styles.divider}>
+          <p className={styles.priceLabel}>
+            Paid diagnostic call: {site.auditPriceNgn === "[TO FILL]" ? "[TO FILL]" : `₦${site.auditPriceNgn}`}
+          </p>
+          {paid ? (
+            <div className={styles.embedWrap}>
+              <CalEmbed calLink={site.calLink} />
+            </div>
+          ) : (
+            <div className={styles.payArea}>
+              <button
+                type="button"
+                onClick={openPaystack}
+                disabled={payStatus === "opening" || payStatus === "verifying"}
+                className={styles.submitBtn}
+              >
+                {payStatus === "verifying"
+                  ? "Confirming payment..."
+                  : `Pay ₦${site.auditPriceNgn} to book your call`}
+              </button>
+              {payStatus === "error" ? (
+                <p className={styles.error}>Payment didn&apos;t go through. Try again, or reach out directly.</p>
+              ) : null}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  if (step === "result" && result) {
     return (
       <div className="rounded-lg border border-accent-disabled bg-paper-card-elevated p-8">
         <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
-        {result ? (
-          <>
-            <p className="label text-accent">{result.headline}</p>
-            <p className="mt-4 text-lg text-ink">{result.summary}</p>
-            <p className="mt-4 text-muted">{result.recommendation}</p>
-          </>
-        ) : (
-          <p className="mt-4 text-lg text-ink">
-            Book your ₦{site.auditPriceNgn} diagnostic call.
-          </p>
-        )}
+        <p className="label text-accent">{result.headline}</p>
+        <p className="mt-4 text-lg text-ink">{result.summary}</p>
+        <p className="mt-4 text-muted">{result.recommendation}</p>
 
         <div className="mt-10 border-t border-line pt-8">
           <p className="label">
@@ -170,15 +200,34 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
     );
   }
 
+  if (step === "email" && variant === "checkout") {
+    return (
+      <form onSubmit={onSubmitEmail} className={`${shell.card} ${styles.emailCard}`}>
+        <p className={shell.slabel}>Almost done</p>
+        <h2 className={styles.emailH2}>Where should I send your booking confirmation?</h2>
+        <div className={styles.field}>
+          <input
+            type="email"
+            required
+            placeholder="you@business.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
+          />
+        </div>
+        <button type="submit" disabled={status === "sending"} className={styles.submitBtn}>
+          {status === "sending" ? "Sending..." : "Continue to payment"}
+        </button>
+        {status === "error" ? <p className={styles.error}>Something went wrong. Try again.</p> : null}
+      </form>
+    );
+  }
+
   if (step === "email") {
     return (
       <div className="rounded-lg border border-line bg-paper-card p-8">
         <p className="label">Almost done</p>
-        <h2 className="mt-3 font-display text-2xl font-bold">
-          {variant === "checkout"
-            ? "Where should I send your booking confirmation?"
-            : "Where should I send your diagnostic?"}
-        </h2>
+        <h2 className="mt-3 font-display text-2xl font-bold">Where should I send your diagnostic?</h2>
         <form onSubmit={onSubmitEmail} className="mt-6 flex flex-col gap-4 sm:flex-row">
           <input
             type="email"
@@ -193,21 +242,19 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
             disabled={status === "sending"}
             className="inline-flex items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent-ink disabled:opacity-60"
           >
-            {status === "sending" ? "Sending..." : variant === "checkout" ? "Continue to payment" : "See my diagnostic"}
+            {status === "sending" ? "Sending..." : "See my diagnostic"}
           </button>
         </form>
         {status === "error" ? (
           <p className="mt-3 text-sm text-accent-ink">Something went wrong. Try again.</p>
         ) : null}
-        {variant === "diagnostic" ? (
-          <button
-            type="button"
-            onClick={goBack}
-            className="mt-4 font-mono text-xs text-muted hover:text-ink"
-          >
-            ← Back
-          </button>
-        ) : null}
+        <button
+          type="button"
+          onClick={goBack}
+          className="mt-4 font-mono text-xs text-muted hover:text-ink"
+        >
+          ← Back
+        </button>
       </div>
     );
   }

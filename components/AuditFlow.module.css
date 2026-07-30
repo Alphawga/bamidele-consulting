@@ -1,0 +1,93 @@
+/* Aso-Oke styling for AuditFlow's "checkout" variant (used on /book). The
+   "diagnostic" variant (used on /audit) keeps its own Tailwind dark-card
+   styling below, unchanged — that page is not on the Aso-Oke shell, so it
+   doesn't have --ink/--oxblood/etc. in scope. */
+
+.emailCard {
+  padding: 34px 30px 38px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.emailH2 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  margin: 10px 0 0;
+}
+.field {
+  margin-top: 22px;
+}
+.input {
+  width: 100%;
+  font-family: var(--font-aso-body), serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 2px;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--oxblood);
+}
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--oxblood);
+  color: var(--cream);
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 17px 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.25s, transform 0.25s;
+}
+.submitBtn:hover:not(:disabled) {
+  background: var(--oxblood-dark);
+  transform: translateY(-2px);
+}
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.error {
+  color: var(--oxblood);
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+.resultCard {
+  padding: 34px 30px 38px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.resultLede {
+  font-size: 17px;
+  line-height: 1.55;
+}
+.divider {
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 24px;
+}
+.priceLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.embedWrap {
+  margin-top: 16px;
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.payArea {
+  margin-top: 16px;
+}
