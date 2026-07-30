@@ -28,8 +28,10 @@ declare global {
   }
 }
 
-export default function AuditFlow() {
-  const [step, setStep] = useState<Step>("questions");
+type Variant = "diagnostic" | "checkout";
+
+export default function AuditFlow({ variant = "diagnostic" }: { variant?: Variant }) {
+  const [step, setStep] = useState<Step>(variant === "checkout" ? "email" : "questions");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Partial<AuditAnswers>>({});
   const [email, setEmail] = useState("");
@@ -60,6 +62,11 @@ export default function AuditFlow() {
 
   async function onSubmitEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (variant === "checkout") {
+      trackEvent("book_email_submitted");
+      setStep("result");
+      return;
+    }
     setStatus("sending");
     try {
       const res = await fetch("/api/audit", {
@@ -115,13 +122,21 @@ export default function AuditFlow() {
     }
   }
 
-  if (step === "result" && result) {
+  if (step === "result" && (result || variant === "checkout")) {
     return (
       <div className="rounded-lg border border-accent-disabled bg-paper-card-elevated p-8">
         <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
-        <p className="label text-accent">{result.headline}</p>
-        <p className="mt-4 text-lg text-ink">{result.summary}</p>
-        <p className="mt-4 text-muted">{result.recommendation}</p>
+        {result ? (
+          <>
+            <p className="label text-accent">{result.headline}</p>
+            <p className="mt-4 text-lg text-ink">{result.summary}</p>
+            <p className="mt-4 text-muted">{result.recommendation}</p>
+          </>
+        ) : (
+          <p className="mt-4 text-lg text-ink">
+            Book your ₦{site.auditPriceNgn} diagnostic call.
+          </p>
+        )}
 
         <div className="mt-10 border-t border-line pt-8">
           <p className="label">
@@ -160,7 +175,9 @@ export default function AuditFlow() {
       <div className="rounded-lg border border-line bg-paper-card p-8">
         <p className="label">Almost done</p>
         <h2 className="mt-3 font-display text-2xl font-bold">
-          Where should I send your diagnostic?
+          {variant === "checkout"
+            ? "Where should I send your booking confirmation?"
+            : "Where should I send your diagnostic?"}
         </h2>
         <form onSubmit={onSubmitEmail} className="mt-6 flex flex-col gap-4 sm:flex-row">
           <input
@@ -176,19 +193,21 @@ export default function AuditFlow() {
             disabled={status === "sending"}
             className="inline-flex items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent-ink disabled:opacity-60"
           >
-            {status === "sending" ? "Sending..." : "See my diagnostic"}
+            {status === "sending" ? "Sending..." : variant === "checkout" ? "Continue to payment" : "See my diagnostic"}
           </button>
         </form>
         {status === "error" ? (
           <p className="mt-3 text-sm text-accent-ink">Something went wrong. Try again.</p>
         ) : null}
-        <button
-          type="button"
-          onClick={goBack}
-          className="mt-4 font-mono text-xs text-muted hover:text-ink"
-        >
-          ← Back
-        </button>
+        {variant === "diagnostic" ? (
+          <button
+            type="button"
+            onClick={goBack}
+            className="mt-4 font-mono text-xs text-muted hover:text-ink"
+          >
+            ← Back
+          </button>
+        ) : null}
       </div>
     );
   }

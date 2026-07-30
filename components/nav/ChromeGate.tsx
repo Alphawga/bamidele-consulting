@@ -11,6 +11,7 @@ const BARE_PATHS = new Set([
   "/writing",
   "/contact",
   "/scorecard",
+  "/book",
 ]);
 
 // Internal admin tool: owns its own full-width header, no public site chrome.
