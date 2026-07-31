@@ -4,7 +4,20 @@ import { getBlogPosts } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
-  const staticPaths = ["", "/okoh", "/audit", "/about", "/blog", "/mentorship"];
+  const staticPaths = [
+    "",
+    "/okoh",
+    "/audit",
+    "/about",
+    "/blog",
+    "/mentorship",
+    "/contact",
+    "/offers",
+    "/products",
+    "/book",
+    "/scorecard",
+    "/writing",
+  ];
 
   const staticEntries = staticPaths.map((p) => ({
     url: `${base}${p}`,

@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import "./globals.css";
 import ChromeGate from "@/components/nav/ChromeGate";
+import StructuredData from "@/components/StructuredData";
 import { site } from "@/lib/site";
 
 const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
@@ -59,6 +60,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -72,6 +76,7 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable} ${asoDisplay.variable} ${asoBody.variable}`}
     >
       <body className="min-h-screen">
+        <StructuredData />
         <ChromeGate>{children}</ChromeGate>
         <Analytics />
         {clarityProjectId ? (
