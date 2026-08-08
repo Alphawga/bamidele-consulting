@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { isValidScorecardAnswers, scoreScorecard } from "@/lib/scorecard";
+import { SECTION_WEAKNESS_NOTES, isValidScorecardAnswers, scoreScorecard } from "@/lib/scorecard";
 import { prisma } from "@/lib/prisma";
-import { buildNotificationEmail } from "@/lib/email";
+import { site } from "@/lib/site";
+import { buildNotificationEmail, buildScorecardResultEmail } from "@/lib/email";
 
 const bandTone: Record<string, "forest" | "gold" | "oxblood"> = {
   Consolidated: "forest",
@@ -119,6 +120,40 @@ export async function POST(req: Request) {
       }),
     });
     if (error) console.error("Resend send failed for /api/scorecard:", error);
+
+    const { error: leadEmailError } = await resend.emails.send({
+      from,
+      to: email,
+      replyTo: notifyTo,
+      subject: `Your operations score: ${result.total}/100`,
+      text: [
+        `${name.trim().split(/\s+/)[0]}, here is your score.`,
+        ``,
+        `${result.total}/100 — ${result.band.name}`,
+        result.band.description,
+        ``,
+        ...result.sectionScores.map((s) => `${s.section}: ${s.score}/20`),
+        ``,
+        `Where it is worst: ${result.weakestSection}`,
+        SECTION_WEAKNESS_NOTES[result.weakestSection] ?? "",
+        ``,
+        `A score tells you which part of the operation is worst. It does not tell you what that part is costing you every month, and that is the number worth having.`,
+        `That is what the diagnostic call is for. Forty-five minutes, and we take ${result.weakestSection.toLowerCase()} apart until one leak has a naira figure on it that you can go and check yourself. It costs \u20a610,000, and it comes off the price of a full audit if you decide to do one.`,
+        ``,
+        `Book it here: ${site.url}/book`,
+      ].join("\n"),
+      html: buildScorecardResultEmail({
+        name,
+        total: result.total,
+        bandName: result.band.name,
+        bandDescription: result.band.description,
+        weakestSection: result.weakestSection,
+        weakestNote: SECTION_WEAKNESS_NOTES[result.weakestSection] ?? "",
+        sectionScores: result.sectionScores,
+        bookUrl: `${site.url}/book`,
+      }),
+    });
+    if (leadEmailError) console.error("Resend lead send failed for /api/scorecard:", leadEmailError);
   }
 
   return NextResponse.json({ ok: true, result });

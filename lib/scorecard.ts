@@ -277,6 +277,19 @@ const BANDS: { min: number; band: ScorecardBand }[] = [
   },
 ];
 
+export const SECTION_WEAKNESS_NOTES: Record<string, string> = {
+  "Quotations and sales":
+    "Quoting is the slowest part of your operation and nobody can tell you how many quotes turned into orders. A customer asks for a price on Monday and gets it on Wednesday, by which time he has asked someone else too.",
+  "Inventory and delivery":
+    "You find out what you have by asking someone or by walking to look. That is also how you find out you have sold something you cannot deliver.",
+  Money:
+    "You know what came in and what went out, but not what any single job made. So the customer you treat as your best one can be the one costing you the most.",
+  "People and tasks":
+    "Work gets handed out and nothing confirms it finished, so the only reason anything closes is that you remembered to chase it.",
+  "Data and memory":
+    "Parts of your business live in one person's head. The day that person travels, the answer travels with them.",
+};
+
 export type ScorecardSectionScore = { section: string; score: number };
 
 export type ScorecardResult = {

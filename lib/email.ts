@@ -120,3 +120,103 @@ export function buildNotificationEmail({
   </body>
 </html>`;
 }
+
+type ScorecardResultEmailOptions = {
+  name: string;
+  total: number;
+  bandName: string;
+  bandDescription: string;
+  weakestSection: string;
+  weakestNote: string;
+  sectionScores: { section: string; score: number }[];
+  bookUrl: string;
+};
+
+export function buildScorecardResultEmail({
+  name,
+  total,
+  bandName,
+  bandDescription,
+  weakestSection,
+  weakestNote,
+  sectionScores,
+  bookUrl,
+}: ScorecardResultEmailOptions): string {
+  const firstName = name.trim().split(/\s+/)[0];
+
+  const sectionsHtml = sectionScores
+    .map(
+      (s) => `
+        <tr>
+          <td style="padding:10px 0;border-bottom:1px solid #e4dcc8;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#1c1916;">${escapeHtml(s.section)}${
+            s.section === weakestSection
+              ? ` <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#8e2c48;">weakest</span>`
+              : ""
+          }</td>
+          <td style="padding:10px 0;border-bottom:1px solid #e4dcc8;font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:15px;color:#1c1916;text-align:right;white-space:nowrap;">${s.score} / 20</td>
+        </tr>`
+    )
+    .join("");
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#e4dcc8;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e4dcc8;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#faf7ef;">
+            <tr><td style="height:8px;background:#8e2c48;font-size:0;line-height:0;">&nbsp;</td></tr>
+            <tr><td style="height:4px;background:#c79a3b;font-size:0;line-height:0;">&nbsp;</td></tr>
+            <tr><td style="height:4px;background:#2e4a3b;font-size:0;line-height:0;">&nbsp;</td></tr>
+            <tr>
+              <td style="padding:32px 32px 0;">
+                <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7d7361;">alphawga.com / operations self-audit</p>
+                <h1 style="margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#1c1916;">${escapeHtml(firstName)}, here is your score</h1>
+                <table role="presentation" cellpadding="0" cellspacing="0" style="border:1px solid #8e2c48;background:#f2ecdf;margin:0 0 20px;">
+                  <tr>
+                    <td style="padding:14px 20px;">
+                      <p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#8e2c48;">${escapeHtml(bandName)}</p>
+                      <p style="margin:0;font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:28px;color:#1c1916;">${total} / 100</p>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:0 0 28px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">${escapeHtml(bandDescription)}</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 32px;">
+                <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#a3782a;">Your five sections</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${sectionsHtml}</table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px 32px 0;">
+                <p style="margin:0 0 8px;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#1c1916;">Where it is worst: ${escapeHtml(weakestSection)}</p>
+                <p style="margin:0 0 28px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">${escapeHtml(weakestNote)}</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 32px 32px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2ecdf;border:1px solid #ddd4bf;">
+                  <tr>
+                    <td style="padding:24px;">
+                      <p style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">A score tells you which part of the operation is worst. It does not tell you what that part is costing you every month, and that is the number worth having.</p>
+                      <p style="margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">That is what the diagnostic call is for. Forty-five minutes, and we take ${escapeHtml(weakestSection.toLowerCase())} apart until one leak has a naira figure on it that you can go and check yourself. It costs ₦10,000, and it comes off the price of a full audit if you decide to do one.</p>
+                      <a href="${escapeHtml(bookUrl)}" style="display:inline-block;background:#8e2c48;color:#faf7ef;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.04em;padding:14px 28px;">Book the diagnostic call</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 32px;background:#f2ecdf;border-top:1px solid #ddd4bf;">
+                <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9a8f7c;">You scored yourself at alphawga.com/scorecard. Reply to this email if you want my read on your answers.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
