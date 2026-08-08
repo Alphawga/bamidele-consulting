@@ -224,13 +224,16 @@ a.btnsec:hover {
   inset: 14px;
 }
 
+/* Transform only, never opacity: an element at opacity 0 is not a paint, so
+   fading the hero in made the browser report LCP at the end of the fade
+   (measured 4.1s of render delay on mobile) for text that was in the HTML all
+   along. The stagger below is tight for the same reason: with `both` fill the
+   element sits at the start transform for the whole delay. */
 @keyframes rise3d {
   from {
-    opacity: 0;
     transform: translateY(60px) rotateX(24deg);
   }
   to {
-    opacity: 1;
     transform: translateY(0) rotateX(0);
   }
 }
@@ -246,16 +249,16 @@ a.btnsec:hover {
   display: flex;
 }
 .r3a {
-  animation-delay: 0.08s;
+  animation-delay: 0s;
 }
 .r3b {
-  animation-delay: 0.24s;
+  animation-delay: 0.06s;
 }
 .r3c {
-  animation-delay: 0.42s;
+  animation-delay: 0.12s;
 }
 .r3d {
-  animation-delay: 0.6s;
+  animation-delay: 0.18s;
 }
 
 .rv {
@@ -436,6 +439,14 @@ a.btnsec:hover {
   margin-top: 44px;
   perspective: 1200px;
 }
+/* The whole card is the link, so `.root a`'s underline and oxblood have to be
+   undone here and reapplied to the CTA span alone. Equal specificity to
+   `.root a`, later in the file, so source order wins. */
+a.pathcard {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
 .pathcard {
   background: var(--cream);
   border: 1px solid var(--border);
@@ -443,6 +454,16 @@ a.btnsec:hover {
   transform-style: preserve-3d;
   transition: box-shadow 0.35s;
   will-change: transform;
+}
+.pathcta {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a.pathcard:hover .pathcta {
+  color: var(--oxblood-dark);
 }
 .pathtop {
   height: 8px;
@@ -551,7 +572,6 @@ a.btnsec:hover {
 @media (prefers-reduced-motion: reduce) {
   .r3 {
     animation: none;
-    opacity: 1;
     transform: none;
   }
   .rv {

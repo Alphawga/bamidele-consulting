@@ -9,17 +9,26 @@ import { site } from "@/lib/site";
 
 const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 
+// preload:false, not a nested layout: these two are declared here for the
+// pre-AlphaWGA routes, but no Aso-Oke page styles anything with them, and a
+// preload link forces the download on every route regardless. Dropping the
+// link takes them off the critical path for the Aso-Oke pages (all the
+// LinkedIn traffic) while the routes that do render Fraunces still get it,
+// discovered from CSS and swapped in. Scoping by layout instead would have
+// broken /book, an Aso-Oke page whose AuditFlow uses font-display.
 const display = Fraunces({
   subsets: ["latin"],
   weight: ["400", "600"],
   variable: "--font-display",
   display: "swap",
+  preload: false,
 });
 const sans = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-sans",
   display: "swap",
+  preload: false,
 });
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],

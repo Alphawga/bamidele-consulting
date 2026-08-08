@@ -141,6 +141,70 @@
   display: none;
 }
 
+/* Hamburger + menu. Both are desktop-hidden and only switched on in the
+   <=820px block below, where .snavlinks goes away. */
+.navToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 9px;
+  flex: 0 0 auto;
+  background: none;
+  border: 1px solid var(--nav-border);
+  cursor: pointer;
+}
+.navToggleBar,
+.navToggleBarHidden,
+.navToggleBarTopOpen,
+.navToggleBarBottomOpen {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.25s, opacity 0.2s;
+}
+.navToggleBarHidden {
+  opacity: 0;
+}
+.navToggleBarTopOpen {
+  transform: translateY(7px) rotate(45deg);
+}
+.navToggleBarBottomOpen {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Sits under .snav's z-index 50 so the toggle stays tappable while open. */
+.navMenu {
+  display: none;
+  position: fixed;
+  inset: 60px 0 0 0;
+  z-index: 49;
+  flex-direction: column;
+  gap: 2px;
+  padding: 24px 20px 40px;
+  background: var(--parchment);
+  overflow-y: auto;
+}
+.navMenuLink {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--nav-border);
+  text-decoration: none !important;
+  color: var(--ink) !important;
+}
+.navMenuLinkActive {
+  color: var(--oxblood) !important;
+}
+.navMenuCta {
+  margin-top: 28px;
+  align-self: flex-start;
+}
+
 .seam {
   display: inline-flex;
   gap: 3px;
@@ -347,13 +411,15 @@ a.btngold:hover {
 
 /* mount-in entrance for interior-page heroes — simpler than Home's (no
    rotateX), matches the prototypes' own rise3d keyframe exactly. */
+/* Transform only, never opacity, and a tight stagger. See the note on
+   rise3d in AsoOkeHome.module.css: fading text in defers the LCP paint to the
+   end of the fade, and `both` fill parks the element at the start transform
+   for the whole delay. */
 @keyframes riseIn {
   from {
-    opacity: 0;
     transform: translateY(60px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -364,19 +430,18 @@ a.btngold:hover {
   animation-delay: 0s;
 }
 .riseB {
-  animation-delay: 0.15s;
+  animation-delay: 0.06s;
 }
 .riseC {
-  animation-delay: 0.3s;
+  animation-delay: 0.12s;
 }
 .riseD {
-  animation-delay: 0.45s;
+  animation-delay: 0.18s;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .rise {
     animation: none;
-    opacity: 1;
     transform: none;
   }
 }
@@ -395,6 +460,12 @@ a.btngold:hover {
   }
   .snavlinks {
     display: none;
+  }
+  .navToggle {
+    display: flex;
+  }
+  .navMenu {
+    display: flex;
   }
   .navCta {
     margin-left: auto !important;

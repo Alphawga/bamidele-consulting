@@ -90,7 +90,7 @@ export default function AsoOkeHome() {
   const proofWrapRef = useRef<HTMLElement>(null);
   const proofCardRef = useRef<HTMLDivElement>(null);
   const countRefs = useRef<Array<HTMLSpanElement | null>>([]);
-  const workCardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const workCardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
   useGSAP(
     () => {
@@ -445,8 +445,9 @@ export default function AsoOkeHome() {
         </p>
         <div className={styles.pathgrid}>
           {OFFER_CARDS.map((offer, i) => (
-            <div
+            <Link
               key={offer.title}
+              href={offer.href}
               ref={(el) => {
                 workCardRefs.current[i] = el;
               }}
@@ -461,9 +462,9 @@ export default function AsoOkeHome() {
                 {offer.body}
               </p>
               <p className={styles.pathlink}>
-                <Link href={offer.href}>{offer.cta}</Link>
+                <span className={styles.pathcta}>{offer.cta}</span>
               </p>
-            </div>
+            </Link>
           ))}
         </div>
         <p className={`${styles.pathlink} ${styles.rv}`} style={{ marginTop: 36 }}>
