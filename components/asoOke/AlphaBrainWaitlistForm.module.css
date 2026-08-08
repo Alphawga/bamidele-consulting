@@ -1,0 +1,105 @@
+.formCard {
+  padding: 34px 30px 38px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 26px;
+}
+.field:first-child {
+  margin-top: 0;
+}
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.optional {
+  color: var(--hint);
+  letter-spacing: 0.16em;
+}
+.input,
+.textarea {
+  font-family: var(--font-aso-body), serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 2px;
+  transition: border-color 0.2s;
+}
+.textarea {
+  resize: vertical;
+  min-height: 76px;
+  line-height: 1.6;
+}
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-bottom-color: var(--oxblood);
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--hint);
+}
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--oxblood);
+  color: var(--cream);
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 17px 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background 0.25s, transform 0.25s;
+}
+.submitBtn:hover:not(:disabled) {
+  background: var(--oxblood-dark);
+  transform: translateY(-2px);
+}
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.privacy {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--hint);
+  margin: 16px 0 0;
+}
+.error {
+  color: var(--oxblood);
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+.confirm {
+  padding: 40px 34px;
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.confirmTitle {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  margin: 0;
+}
+.confirmBody {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--body-text);
+  margin: 14px 0 0;
+}

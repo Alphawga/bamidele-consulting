@@ -24,6 +24,16 @@ model ErpWaitlist {
   @@map("erp_waitlist")
 }
 
+model AlphabrainWaitlist {
+  id        String   @id @default(cuid())
+  email     String
+  slipping  String?
+  source    String?
+  createdAt DateTime @default(now())
+
+  @@map("alphabrain_waitlist")
+}
+
 model ScorecardLead {
   id             String   @id @default(cuid())
   name           String

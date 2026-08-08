@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/book",
     "/scorecard",
     "/writing",
+    "/alphabrain",
   ];
 
   const staticEntries = staticPaths.map((p) => ({
