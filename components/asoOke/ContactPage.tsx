@@ -8,7 +8,7 @@ import styles from "./ContactPage.module.css";
 
 const FACTS = [
   { k: "Response", v: "Within 24 hours, business days" },
-  { k: "Diagnostic fee", v: "₦10,000, comes off your Systems Audit price within 7 days" },
+  { k: "First conversation", v: "Free. Twenty minutes, no pitch" },
   { k: "Best for", v: "Procurement, supply chain, oil and gas services" },
 ];
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             <span className={shell.wn}>Leave with a thread.</span>
           </h1>
           <p className={`${styles.lede} ${shell.rise} ${shell.riseC}`}>
-            The fastest way in is the ₦10K diagnostic call. One session, and you keep the map.
+            The fastest way in is the free 20-minute read. One conversation, and you keep the map.
             For everything else, a plain email works.
           </p>
           <div className={`${styles.ctaStack} ${shell.rise} ${shell.riseD}`}>
@@ -40,7 +40,7 @@ export default function ContactPage() {
               event="diagnostic_cta_click"
               data={{ location: "contact_hero" }}
             >
-              Book the ₦10K diagnostic →
+              Book a free 20-minute read →
             </TrackedCta>
             <a href={`mailto:${alphawga.email}`} className={styles.emailLink}>
               {alphawga.email}

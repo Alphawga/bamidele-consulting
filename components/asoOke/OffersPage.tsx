@@ -95,7 +95,7 @@ export default function OffersPage() {
           <span className={shell.wn}>runs without you.</span>
         </h1>
         <p className={`${shell.ledes} ${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          That is the result. Four steps get you there. The first costs ₦10K, and every step
+          That is the result. Four steps get you there. The first one is free, and every step
           earns the next. No retainers you can&apos;t explain to your accountant.
         </p>
         <div className={`${styles.heroCtas} ${shell.rise} ${shell.riseD}`}>
@@ -105,7 +105,7 @@ export default function OffersPage() {
             event="diagnostic_cta_click"
             data={{ location: "offers_hero" }}
           >
-            Book the ₦10K diagnostic →
+            Book a free 20-minute read →
           </TrackedCta>
         </div>
       </header>
@@ -115,17 +115,17 @@ export default function OffersPage() {
           <div className={styles.rungBandText}>
             <div className={`${shell.slabel} ${styles.rungBandLabel}`}>
               <SeamMark />
-              STEP ONE · Diagnostic Call · ₦10,000
+              STEP ONE · A 20-minute read · Free
             </div>
-            Your most expensive leak, found and costed in one call.
+            Twenty minutes on how your business actually runs.
             <br />
             <br />
-            You walk away knowing the single place your business loses the most money every
-            month, the naira figure attached to it, and two fixes you can apply the same week
-            without paying anyone.
+            You describe how work moves through the business. I tell you which part I would look
+            at first and why, and give you one thing you can go and check yourself this week.
             <br />
             <br />
-            Your ₦10K comes off the audit price if you book within 7 days.
+            If a full diagnostic is worth doing after that, I will tell you what it costs. If it
+            isn&apos;t, I will tell you that too.
           </div>
           <TrackedCta
             href={alphawga.calDiagnosticUrl}
@@ -133,7 +133,7 @@ export default function OffersPage() {
             event="diagnostic_cta_click"
             data={{ location: "offers_rung_band" }}
           >
-            Book the diagnostic →
+            Book the free read →
           </TrackedCta>
         </div>
 

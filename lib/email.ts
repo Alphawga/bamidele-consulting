@@ -201,8 +201,8 @@ export function buildScorecardResultEmail({
                   <tr>
                     <td style="padding:24px;">
                       <p style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">A score tells you which part of the operation is worst. It does not tell you what that part is costing you every month, and that is the number worth having.</p>
-                      <p style="margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">That is what the diagnostic call is for. Forty-five minutes, and we take ${escapeHtml(weakestSection.toLowerCase())} apart until one leak has a naira figure on it that you can go and check yourself. It costs ₦10,000, and it comes off the price of a full audit if you decide to do one.</p>
-                      <a href="${escapeHtml(bookUrl)}" style="display:inline-block;background:#8e2c48;color:#faf7ef;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.04em;padding:14px 28px;">Book the diagnostic call</a>
+                      <p style="margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#463f33;">If you want, give me twenty minutes and we will take ${escapeHtml(weakestSection.toLowerCase())} apart until you can see which leak to look at first. No charge for that, and no pitch. You leave with one thing you can go and check yourself.</p>
+                      <a href="${escapeHtml(bookUrl)}" style="display:inline-block;background:#8e2c48;color:#faf7ef;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.04em;padding:14px 28px;">Book a free 20-minute read</a>
                     </td>
                   </tr>
                 </table>

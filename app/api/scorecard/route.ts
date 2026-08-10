@@ -138,7 +138,7 @@ export async function POST(req: Request) {
         SECTION_WEAKNESS_NOTES[result.weakestSection] ?? "",
         ``,
         `A score tells you which part of the operation is worst. It does not tell you what that part is costing you every month, and that is the number worth having.`,
-        `That is what the diagnostic call is for. Forty-five minutes, and we take ${result.weakestSection.toLowerCase()} apart until one leak has a naira figure on it that you can go and check yourself. It costs \u20a610,000, and it comes off the price of a full audit if you decide to do one.`,
+        `If you want, give me twenty minutes and we will take ${result.weakestSection.toLowerCase()} apart until you can see which leak to look at first. No charge for that, and no pitch. You leave with one thing you can go and check yourself.`,
         ``,
         `Book it here: ${site.url}/book`,
       ].join("\n"),

@@ -87,7 +87,7 @@ export default function WritingPage() {
             event="diagnostic_cta_click"
             data={{ location: "writing_closing" }}
           >
-            Or skip ahead: book the ₦10K diagnostic →
+            Or skip ahead: book a free 20-minute read →
           </TrackedCta>
         </p>
       </section>

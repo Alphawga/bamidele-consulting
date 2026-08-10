@@ -116,8 +116,8 @@ export default function ScorecardFlow() {
           Built from the leaks found and fixed inside a live 500-client procurement operation.
         </p>
         <p className={styles.ctaText}>
-          Want the naira figure on your worst leak? Book the ₦10K diagnostic. It comes off
-          your audit price if you book within 7 days.
+          Want to know which leak to look at first? Book a free 20-minute read. Twenty minutes,
+          no charge, and you leave with one thing you can go and check yourself.
         </p>
         <TrackedCta
           href={alphawga.calDiagnosticUrl}

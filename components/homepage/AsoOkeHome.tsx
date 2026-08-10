@@ -297,7 +297,7 @@ export default function AsoOkeHome() {
               className={styles.btnp}
               onClick={() => trackEvent("diagnostic_cta_click", { location: "home_hero" })}
             >
-              Book the ₦10K diagnostic →
+              Book a free 20-minute read →
             </a>
             <Link
               href="/scorecard"
@@ -440,7 +440,7 @@ export default function AsoOkeHome() {
           The work
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          Three ways to go deeper, from the ₦10,000 call to a senior systems head on your
+          Three ways to go deeper, from a free 20-minute read to a senior systems head on your
           team. Start wherever makes sense.
         </p>
         <div className={styles.pathgrid}>
@@ -475,9 +475,9 @@ export default function AsoOkeHome() {
       </section>
 
       <section className={styles.closingBand}>
-        <h2 className={styles.closingH2}>Start with the ₦10K diagnostic.</h2>
+        <h2 className={styles.closingH2}>Start with a 20-minute read.</h2>
         <p className={styles.closingSub}>
-          It comes off your Systems Audit price if you book within 7 days.
+          No charge, no pitch. You leave knowing which part of the business to look at first.
         </p>
         <TrackedCta
           href={alphawga.calDiagnosticUrl}

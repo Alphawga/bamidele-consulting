@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Script from "next/script";
 import { auditQuestions, diagnoseOperation, type AuditAnswers, type AuditResult } from "@/lib/audit";
 import { site } from "@/lib/site";
 import { trackEvent } from "@/lib/track";
@@ -11,24 +10,8 @@ import styles from "./AuditFlow.module.css";
 
 type Step = "questions" | "email" | "result";
 type Status = "idle" | "sending" | "error";
-type PayStatus = "idle" | "opening" | "verifying" | "error";
 
 const totalQuestions = auditQuestions.length;
-
-declare global {
-  interface Window {
-    PaystackPop?: {
-      setup(config: {
-        key: string;
-        email: string;
-        amount: number;
-        currency: string;
-        callback: (response: { reference: string }) => void;
-        onClose: () => void;
-      }): { openIframe: () => void };
-    };
-  }
-}
 
 type Variant = "diagnostic" | "checkout";
 
@@ -39,8 +22,6 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<AuditResult | null>(null);
-  const [paid, setPaid] = useState(false);
-  const [payStatus, setPayStatus] = useState<PayStatus>("idle");
 
   const question = auditQuestions[questionIndex];
 
@@ -87,74 +68,16 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
     }
   }
 
-  function openPaystack() {
-    if (!window.PaystackPop) return;
-    trackEvent("audit_payment_initiated");
-    setPayStatus("opening");
-    const handler = window.PaystackPop.setup({
-      key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY ?? "",
-      email,
-      amount: Math.round(Number(site.auditPriceNgn.replace(/,/g, "")) * 100),
-      currency: "NGN",
-      callback: (response) => {
-        void verifyPayment(response.reference);
-      },
-      onClose: () => {
-        setPayStatus("idle");
-      },
-    });
-    handler.openIframe();
-  }
-
-  async function verifyPayment(reference: string) {
-    setPayStatus("verifying");
-    try {
-      const res = await fetch("/api/paystack/verify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reference, answers }),
-      });
-      const body = await res.json();
-      if (!res.ok || !body.paid) throw new Error("Payment could not be verified");
-      trackEvent("audit_payment_verified");
-      setPaid(true);
-      setPayStatus("idle");
-    } catch {
-      setPayStatus("error");
-    }
-  }
-
   if (step === "result" && variant === "checkout") {
     return (
       <div className={`${shell.card} ${styles.resultCard}`}>
-        <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
-        <p className={styles.resultLede}>Book your ₦{site.auditPriceNgn} diagnostic call.</p>
+        <p className={styles.resultLede}>Pick a time that works.</p>
 
         <div className={styles.divider}>
-          <p className={styles.priceLabel}>
-            Paid diagnostic call: {site.auditPriceNgn === "[TO FILL]" ? "[TO FILL]" : `₦${site.auditPriceNgn}`}
-          </p>
-          {paid ? (
-            <div className={styles.embedWrap}>
-              <CalEmbed calLink={site.calLink} />
-            </div>
-          ) : (
-            <div className={styles.payArea}>
-              <button
-                type="button"
-                onClick={openPaystack}
-                disabled={payStatus === "opening" || payStatus === "verifying"}
-                className={styles.submitBtn}
-              >
-                {payStatus === "verifying"
-                  ? "Confirming payment..."
-                  : `Pay ₦${site.auditPriceNgn} to book your call`}
-              </button>
-              {payStatus === "error" ? (
-                <p className={styles.error}>Payment didn&apos;t go through. Try again, or reach out directly.</p>
-              ) : null}
-            </div>
-          )}
+          <p className={styles.priceLabel}>Twenty minutes. No charge.</p>
+          <div className={styles.embedWrap}>
+            <CalEmbed calLink={site.calLink} />
+          </div>
         </div>
       </div>
     );
@@ -163,38 +86,15 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
   if (step === "result" && result) {
     return (
       <div className="rounded-lg border border-accent-disabled bg-paper-card-elevated p-8">
-        <Script src="https://js.paystack.co/v1/inline.js" strategy="lazyOnload" />
         <p className="label text-accent">{result.headline}</p>
         <p className="mt-4 text-lg text-ink">{result.summary}</p>
         <p className="mt-4 text-muted">{result.recommendation}</p>
 
         <div className="mt-10 border-t border-line pt-8">
-          <p className="label">
-            Paid diagnostic call: {site.auditPriceNgn === "[TO FILL]" ? "[TO FILL]" : `₦${site.auditPriceNgn}`}
-          </p>
-          {paid ? (
-            <div className="mt-4 min-h-[480px] overflow-hidden rounded-md border border-line">
-              <CalEmbed calLink={site.calLink} />
-            </div>
-          ) : (
-            <div className="mt-4">
-              <button
-                type="button"
-                onClick={openPaystack}
-                disabled={payStatus === "opening" || payStatus === "verifying"}
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent-ink disabled:opacity-60"
-              >
-                {payStatus === "verifying"
-                  ? "Confirming payment..."
-                  : `Pay ₦${site.auditPriceNgn} to book your call`}
-              </button>
-              {payStatus === "error" ? (
-                <p className="mt-3 text-sm text-accent-ink">
-                  Payment didn't go through. Try again, or reach out directly.
-                </p>
-              ) : null}
-            </div>
-          )}
+          <p className="label">A 20-minute read, no charge</p>
+          <div className="mt-4 min-h-[480px] overflow-hidden rounded-md border border-line">
+            <CalEmbed calLink={site.calLink} />
+          </div>
         </div>
       </div>
     );
@@ -216,7 +116,7 @@ export default function AuditFlow({ variant = "diagnostic" }: { variant?: Varian
           />
         </div>
         <button type="submit" disabled={status === "sending"} className={styles.submitBtn}>
-          {status === "sending" ? "Sending..." : "Continue to payment"}
+          {status === "sending" ? "Sending..." : "Continue"}
         </button>
         {status === "error" ? <p className={styles.error}>Something went wrong. Try again.</p> : null}
       </form>

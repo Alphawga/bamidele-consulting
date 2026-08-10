@@ -2,7 +2,6 @@ import AsoOkeNav from "./AsoOkeNav";
 import AsoOkeFooter from "./AsoOkeFooter";
 import SeamMark from "./SeamMark";
 import AuditFlow from "@/components/AuditFlow";
-import { site } from "@/lib/site";
 import shell from "./AsoOkeShell.module.css";
 import styles from "./BookPage.module.css";
 
@@ -18,13 +17,14 @@ export default function BookPage() {
           Book
         </div>
         <h1 className={`${styles.h1} ${shell.rise} ${shell.riseB}`}>
-          One call. ₦{site.auditPriceNgn}.
+          Twenty minutes.
           <br />
-          <span className={shell.wn}>Comes off your Systems Audit.</span>
+          <span className={shell.wn}>No charge, no pitch.</span>
         </h1>
         <p className={`${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          The fee screens for people who are serious about fixing the leak, not browsing. Pay,
-          then pick a time.
+          Tell me how the business runs and I will tell you which part I would look at first,
+          and why. If a full diagnostic is worth doing after that, I will say what it costs and
+          you can decide then. Pick a time.
         </p>
       </header>
 
