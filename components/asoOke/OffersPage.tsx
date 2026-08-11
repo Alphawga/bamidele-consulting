@@ -9,29 +9,27 @@ import styles from "./OffersPage.module.css";
 
 const OFFERS = [
   {
-    key: "systems-audit",
+    key: "operational-control-diagnostic",
     step: "STEP TWO",
     color: "var(--oxblood)",
-    title: "Systems Audit",
-    price: "₦250,000",
-    per: "14 days",
-    tagline: "Every leak in your operation, found and costed in 14 days.",
-    body: "You walk away knowing exactly what the chaos costs your business every month, in one number, plus the order to fix things in, so the cheap fixes fund the bigger ones.",
+    title: "Operational Control Diagnostic",
+    price: "₦100,000",
+    per: "1 week",
+    tagline: "One workflow, taken apart and understood, in a week.",
+    body: "We agree on the workflow that is costing you most before anything starts. You walk away with a written map of how that work actually moves through your business today, the constraints ranked by what they cost, and the 30 days of actions that follow from it.",
     listTitle: "What's inside",
     points: [
-      "Two weeks inside your operation",
-      "Interviews with your key staff: the one who quotes, the one who tracks orders, the one who chases money",
-      "A walkthrough of how one real order actually moves through your business",
-      "The Leak Map: every leak, its cause, its monthly naira cost",
-      "The Cost of Chaos: one number for what the mess costs you monthly",
-      "The Roadmap: fixes in order, each marked \"your team can do this\" or \"needs a developer\"",
-      "A 60-minute call where I walk you through every finding",
-      "A designed report you can put in front of your partners",
+      "One high-risk workflow, scoped and agreed before we start",
+      "Interviews with you and up to two of your staff",
+      "A review of every tool that workflow touches",
+      "The current-state map: how the work moves today, not how it is supposed to",
+      "The constraints, named and ranked by what each one costs you",
+      "30-day actions, each marked \"your team can do this\" or \"needs a developer\"",
+      "A readout call where I walk you through every finding",
     ],
     guarantee:
-      "The report is yours forever, execute it with anyone. And if the audit shows your operation is healthier than you feared, I will say so and shrink the roadmap. You pay for the truth, not for a big document.",
-    afterNote: "I take 2 audits per month.",
-    cta: "Start with the diagnostic →",
+      "You get a written deliverable, never an hour of my time. The document is yours forever and you can execute it with anyone. If the workflow turns out healthier than you feared, I will say so and the actions list will be short.",
+    cta: "Start with the free read →",
   },
   {
     key: "consolidation-blueprint",
@@ -52,13 +50,36 @@ const OFFERS = [
       "30 days of WhatsApp support so the plan does not die in a drawer",
     ],
     guarantee: "If a good developer cannot build from my plan, I work with them until they can, at no extra cost.",
-    cta: "Begins after an audit →",
-    href: "#systems-audit",
+    cta: "Begins after a diagnostic →",
+    href: "#operational-control-diagnostic",
+  },
+  {
+    key: "consolidation-build",
+    step: "STEP FOUR",
+    color: "var(--forest)",
+    title: "Consolidation Build",
+    price: "₦2M to 4M",
+    per: "6 to 10 weeks",
+    tagline: "I don't just tell you what to build. I build it, and it works before I hand it back.",
+    body: "Blueprints usually die at implementation, not because the plan was wrong but because nobody senior was watching. This is the version where the person who found the leaks is the one who closes them, inside your operation, with working software at the end instead of a document somebody else has to interpret.",
+    listTitle: "What's inside",
+    points: [
+      "The same process mapping and future-state design as the Blueprint, or your existing one reused",
+      "Built inside your operation, against how your people actually work",
+      "A working demo every week, same day and time, so progress is never a black box",
+      "About six weeks for a single department, about ten for a full operation",
+      "Payment in three parts: 30% to start, 30% at a working midpoint demo, 40% at handover",
+    ],
+    guarantee:
+      "If you already have a developer or a team who can build it, buy the Blueprint instead and let them. I will tell you that in the conversation rather than after you have paid.",
+    afterNote: "Sign within 30 days of Blueprint handover and 20% of the Blueprint fee comes off the Build.",
+    cta: "Begins after a diagnostic →",
+    href: "#operational-control-diagnostic",
   },
   {
     key: "systems-advisor",
-    step: "STEP FOUR",
-    color: "var(--forest)",
+    step: "STEP FIVE",
+    color: "var(--oxblood)",
     title: "Systems Advisor",
     price: "₦300,000",
     per: "per month, minimum 3 months",
@@ -74,7 +95,7 @@ const OFFERS = [
     guarantee:
       "Cancel with 30 days notice. If the monthly report cannot justify the fee, you will both know it and be free to act on it.",
     afterNote: "I take only four advisory clients at a time.",
-    cta: "Start with the diagnostic →",
+    cta: "Start with the free read →",
   },
 ];
 
@@ -95,8 +116,8 @@ export default function OffersPage() {
           <span className={shell.wn}>runs without you.</span>
         </h1>
         <p className={`${shell.ledes} ${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          That is the result. Four steps get you there. The first one is free, and every step
-          earns the next. No retainers you can&apos;t explain to your accountant.
+          That is the result. It starts with a free conversation, and every step after it earns
+          the next. No retainers you can&apos;t explain to your accountant.
         </p>
         <div className={`${styles.heroCtas} ${shell.rise} ${shell.riseD}`}>
           <TrackedCta
@@ -171,9 +192,10 @@ export default function OffersPage() {
 
         <div className={styles.footnotes}>
           <p className={styles.footnote}>
-            Sometimes the fix is software, not advice. We built Okoh ERP, and it runs a live
-            procurement operation today. If your audit shows you need it, we will tell you.
-            See it on the <Link href="/products">Products page</Link>.
+            Sometimes the fix is software and sometimes it is not. The diagnostic is what tells
+            you which, and it is the same answer whether or not I am the one who builds it.
+            The <Link href="/okoh">Okoh build</Link> is the clearest evidence of what happens
+            when the diagnosis comes first.
           </p>
         </div>
       </section>
@@ -181,7 +203,7 @@ export default function OffersPage() {
       <section className={styles.scorecardBand}>
         <p className={styles.scorecardText}>
           Not ready to pay anything yet. Take the free self-audit and find your leaks in 10
-          minutes.
+          minutes, on your own.
         </p>
         <Link href="/scorecard" className={shell.btnsec}>
           Take the free self-audit →

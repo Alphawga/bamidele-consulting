@@ -1,0 +1,199 @@
+.header {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 110px) clamp(20px, 5vw, 64px) clamp(48px, 7vw, 90px);
+  min-height: calc(100svh - 88px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.clientLogo {
+  margin-bottom: clamp(24px, 3vw, 34px);
+  height: auto;
+  width: clamp(170px, 20vw, 230px);
+}
+.h1 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 6.4vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 16ch;
+}
+.lede {
+  max-width: 640px;
+  margin-top: clamp(20px, 2.6vw, 30px);
+}
+.statRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 64px);
+  margin-top: clamp(32px, 4vw, 46px);
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--border);
+}
+.statV {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.statL {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+  max-width: 18ch;
+}
+
+.body {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 10vw, 120px);
+}
+.section {
+  padding-top: clamp(56px, 7vw, 88px);
+}
+.h2 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(27px, 3.9vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 14px 0 0;
+  max-width: 22ch;
+}
+.p {
+  font-size: clamp(16.5px, 1.8vw, 19px);
+  line-height: 1.65;
+  color: var(--body-text);
+  max-width: 66ch;
+  margin: 18px 0 0;
+}
+
+.arc {
+  margin-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--border);
+}
+.arcRow {
+  display: flex;
+  gap: clamp(16px, 3vw, 38px);
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding: 26px 0;
+}
+.arcYear {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
+  flex: 0 0 auto;
+  min-width: 90px;
+}
+.arcText {
+  flex: 1;
+  min-width: 0;
+}
+.arcTitle {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.2;
+  margin: 0;
+}
+.arcBody {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--body-text);
+  margin: 8px 0 0;
+  max-width: 62ch;
+}
+
+.beforeAfter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: clamp(32px, 4vw, 44px);
+}
+.baCard {
+  padding: 30px 26px 34px;
+}
+.baTop {
+  height: 8px;
+  margin: -30px -26px 22px;
+}
+.baLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.baBody {
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: var(--body-text);
+  margin: 12px 0 0;
+}
+
+.pullBand {
+  margin-top: clamp(48px, 6vw, 72px);
+  padding: clamp(28px, 4vw, 52px);
+  background: var(--ink);
+  color: var(--cream);
+}
+.pullH {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 40px);
+  line-height: 1.12;
+  margin: 14px 0 0;
+  max-width: 24ch;
+}
+.pullBody {
+  font-size: clamp(16px, 1.8vw, 18.5px);
+  line-height: 1.65;
+  margin: 18px 0 0;
+  max-width: 66ch;
+  color: rgba(250, 247, 239, 0.82);
+}
+
+.closing {
+  text-align: center;
+  padding: clamp(64px, 9vw, 108px) clamp(20px, 5vw, 64px);
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.closingH2 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4.6vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.closingSub {
+  font-size: clamp(16px, 1.8vw, 18.5px);
+  line-height: 1.6;
+  color: var(--body-text);
+  margin: 16px auto 0;
+  max-width: 54ch;
+}
+.closingCta {
+  margin-top: 28px;
+}
+
+@media (max-width: 820px) {
+  .header {
+    min-height: auto;
+  }
+  .arcRow {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

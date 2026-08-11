@@ -1,0 +1,128 @@
+.header {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 110px) clamp(20px, 5vw, 64px) clamp(48px, 7vw, 90px);
+  min-height: calc(100svh - 88px);
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.h1 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 5.6vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 16ch;
+}
+.lede {
+  max-width: 600px;
+  margin-top: clamp(20px, 2.6vw, 30px);
+}
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.portrait img {
+  object-fit: cover;
+}
+
+.body {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 10vw, 120px);
+}
+.section {
+  padding-top: clamp(56px, 7vw, 88px);
+}
+.h2 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(27px, 3.9vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 14px 0 0;
+  max-width: 22ch;
+}
+.p {
+  font-size: clamp(16.5px, 1.8vw, 19px);
+  line-height: 1.65;
+  color: var(--body-text);
+  max-width: 66ch;
+  margin: 20px 0 0;
+}
+.pullQuote {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(23px, 3.2vw, 36px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+  margin: 0;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 52px);
+  margin-top: clamp(28px, 3.5vw, 40px);
+}
+.colTitle {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.2;
+  margin: 0;
+}
+.colBody {
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: var(--body-text);
+  margin: 10px 0 0;
+}
+
+.closing {
+  text-align: center;
+  padding: clamp(64px, 9vw, 108px) clamp(20px, 5vw, 64px);
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.closingH2 {
+  font-family: var(--font-aso-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4.6vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.closingSub {
+  font-size: clamp(16px, 1.8vw, 18.5px);
+  line-height: 1.6;
+  color: var(--body-text);
+  margin: 16px auto 0;
+  max-width: 54ch;
+}
+.closingCta {
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .portrait {
+    max-width: 340px;
+  }
+}

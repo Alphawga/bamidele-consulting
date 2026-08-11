@@ -85,9 +85,9 @@ At exactly 50% scroll:
 - A **steel grid** (`steel` lines, `1px`) snaps into view from `opacity: 0` to `opacity: 1` in `0.15s`.
 - The grid is a **ledger table**: 4 columns, 3 rows. Clean. Sharp. Counted.
 - Grid cells populated with real data in `IBM Plex Mono`:
-  - Row 1: `Q-0019` | `Shell Nigeria` | `₦4,250,000` | `DELIVERED`
-  - Row 2: `Q-0018` | `CEED Supply` | `₦1,800,000` | `IN TRANSIT`
-  - Row 3: `Q-0017` | `KFO` | `₦950,000` | `PAID`
+  - Row 1: `Q-0019` | `Ridgeline Energy` | `₦4,250,000` | `DELIVERED`
+  - Row 2: `Q-0018` | `Kembali Marine` | `₦1,800,000` | `IN TRANSIT`
+  - Row 3: `Q-0017` | `Awoyemi & Sons` | `₦950,000` | `PAID`
 - **Column headers**: `QUOTE NO.` | `CLIENT` | `AMOUNT` | `STATUS` — `IBM Plex Mono 400`, `12px`, uppercase, `steel` color.
 - **Background** transitions from `ink` to `paper` (`#F5F1E8`) over `0.3s`.
 

@@ -31,8 +31,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <Section>
-      <Link href="/blog" className="font-mono text-xs text-muted hover:text-ink">
-        ← Blog
+      <Link href="/writing" className="font-mono text-xs text-muted hover:text-ink">
+        ← Writing
       </Link>
       <p className="mt-8 font-mono text-xs uppercase tracking-label text-accent">
         {post.frontmatter.category}

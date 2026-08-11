@@ -9,7 +9,7 @@ import styles from "./ContactPage.module.css";
 const FACTS = [
   { k: "Response", v: "Within 24 hours, business days" },
   { k: "First conversation", v: "Free. Twenty minutes, no pitch" },
-  { k: "Best for", v: "Procurement, supply chain, oil and gas services" },
+  { k: "Best for", v: "Owner-run operations, 10 to 50 staff" },
 ];
 
 export default function ContactPage() {

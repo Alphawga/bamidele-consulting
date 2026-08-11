@@ -48,5 +48,3 @@ function readOne(dir: string, slug: string): Doc | null {
 
 export const getBlogPosts = () => readCollection("blog");
 export const getBlogPost = (slug: string) => readOne("blog", slug);
-export const getBlogCategories = () =>
-  Array.from(new Set(getBlogPosts().map((p) => p.frontmatter.category)));

@@ -7,6 +7,7 @@ import { getBlogPosts } from "@/lib/content";
 // Each path carries the date its content actually last changed instead.
 const STATIC_PATHS: Array<[path: string, lastModified: string]> = [
   ["", "2026-08-11"],
+  ["/how-we-work", "2026-08-11"],
   ["/offers", "2026-08-11"],
   ["/okoh", "2026-08-11"],
   ["/writing", "2026-08-11"],

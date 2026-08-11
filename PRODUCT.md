@@ -9,7 +9,7 @@ brand
 web
 
 ## Users
-Business owners and operators in Lagos (and similar operations-heavy markets) running fragmented setups: Excel, QuickBooks, WhatsApp, paper, Trello. They land here from a warm referral, not cold search. They're evaluating whether this person can be trusted to consolidate their operations into one system, using Okoh ERP (500+ clients, Shell, CEED Supply) as the proof. Secondary audience: skincare brands evaluating Skin AI, and developers considering mentorship.
+Business owners and operators in Lagos (and similar operations-heavy markets) running fragmented setups: Excel, QuickBooks, WhatsApp, paper, Trello. They land here from a warm referral, not cold search. They're evaluating whether this person can be trusted to consolidate their operations into one system, using the Okoh build (500+ clients, four years, a repeat purchase for v2) as the proof. Secondary audience: skincare brands evaluating Skin AI, and developers considering mentorship.
 
 ## Product Purpose
 A personal/business site for Bamidele Ajibola (Alphawga), full-stack developer and technical architect. Core statement: "I consolidate scattered business operations into one intelligent system." The site converts a warm referral into a booked call, using the Okoh ERP case study as the primary proof anchor and a free operational-audit questionnaire as the lead magnet. Success = booked diagnostic calls and audit completions, not pageviews.

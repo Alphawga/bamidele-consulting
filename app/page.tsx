@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // routes the template serves, but wrong for every Aso-Oke page).
   title: { absolute: "AlphaWGA — Woven, not patched" },
   description:
-    "AlphaWGA consolidates scattered business operations into one intelligent system. Consolidation advisory for Nigerian procurement, supply chain and oil and gas service companies.",
+    "AlphaWGA consolidates scattered business operations into one intelligent system. Business systems and operational control for Nigerian businesses where the owner still personally controls quotations, purchasing, invoicing, inventory or approvals.",
 };
 
 export default function Home() {

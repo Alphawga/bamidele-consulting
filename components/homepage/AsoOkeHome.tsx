@@ -26,11 +26,11 @@ const STRIPS = [
 const OFFER_CARDS = [
   {
     color: "var(--oxblood)",
-    title: "Systems Audit",
-    price: "₦250,000",
-    body: "Two weeks inside your operation. You get the leak map, the cost of chaos number, and the fix-it-in-this-order roadmap.",
-    href: "/offers#systems-audit",
-    cta: "See the Systems Audit →",
+    title: "Operational Control Diagnostic",
+    price: "₦100,000",
+    body: "One week inside one workflow that is costing you. You get the map of how that work actually moves today, the constraints ranked, and the 30 days of actions that follow.",
+    href: "/offers#operational-control-diagnostic",
+    cta: "See the Diagnostic →",
   },
   {
     color: "var(--gold)",
@@ -42,26 +42,26 @@ const OFFER_CARDS = [
   },
   {
     color: "var(--forest)",
-    title: "Systems Advisor",
-    price: "₦300,000/month",
-    body: "A senior systems head on your leadership team for less than a junior developer's salary. I take only four advisory clients at a time.",
-    href: "/offers#systems-advisor",
-    cta: "See the Advisor role →",
+    title: "Consolidation Build",
+    price: "₦2M to 4M",
+    body: "I build the blueprint myself, inside your operation. Working software at the end, not a document somebody else has to interpret. A working demo every week.",
+    href: "/offers#consolidation-build",
+    cta: "See the Build →",
   },
 ];
 
 const FITS = [
   {
-    title: "Procurement & supply chain firms",
-    body: "Quotes in Excel, POs on email, deliveries tracked on WhatsApp. You need one record from quotation to cash, with nothing falling through.",
+    title: "You are still the system",
+    body: "Quotations, purchases, invoices, stock, approvals. They all wait for you. Nothing moves while you travel, and none of it is written down anywhere your people can find it.",
   },
   {
-    title: "Oil & gas service companies",
-    body: "Compliance-heavy operations where a missed document costs a contract. Okoh ERP was built for exactly this.",
+    title: "10 to 50 staff",
+    body: "Big enough that the patchwork costs real money every month, small enough that a ready-made ERP would bury you. That gap is where I work.",
   },
   {
-    title: "Growing ops teams (10–200 staff)",
-    body: "Big enough that the patchwork hurts, small enough that a ready-made ERP would drown you. Exactly who we build for: one system that holds.",
+    title: "Your tools stopped agreeing",
+    body: "Sales says one number, stock says another, the bank says a third, and somebody spends the last week of every month reconciling all three by hand.",
   },
 ];
 
@@ -279,7 +279,7 @@ export default function AsoOkeHome() {
         <div className={styles.heroText}>
           <div className={`${styles.slabel} ${styles.r3} ${styles.r3a}`}>
             <SeamMark />
-            Lagos, Nigeria · Operations consultancy · Procurement & oil and gas
+            Lagos, Nigeria · Business systems and operational control
           </div>
           <h1 className={styles.hdisp}>
             <span className={`${styles.r3} ${styles.r3b}`}>Woven,</span>
@@ -440,8 +440,8 @@ export default function AsoOkeHome() {
           The work
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          Three ways to go deeper, from a free 20-minute read to a senior systems head on your
-          team. Start wherever makes sense.
+          It starts with a free 20-minute read. After that, three ways to go deeper, and each
+          one earns the next.
         </p>
         <div className={styles.pathgrid}>
           {OFFER_CARDS.map((offer, i) => (
@@ -495,8 +495,8 @@ export default function AsoOkeHome() {
           Who this is for
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          Best fit: operations doing ₦5M+ monthly where the leaks are already costing real
-          money.
+          Best fit: a Nigerian business where the owner still personally controls quotations,
+          purchasing, invoicing, inventory or approvals.
         </p>
         <div className={styles.fitList}>
           {FITS.map((fit, i) => (

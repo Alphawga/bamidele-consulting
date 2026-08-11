@@ -9,8 +9,9 @@ import { alphawga } from "@/lib/alphawga";
 import styles from "./AsoOkeShell.module.css";
 
 const LINKS = [
+  { href: "/how-we-work", label: "How We Work" },
+  { href: "/okoh", label: "Case Study" },
   { href: "/offers", label: "Offers" },
-  { href: "/products", label: "Products" },
   { href: "/writing", label: "Writing" },
   { href: "/contact", label: "Contact" },
 ];
