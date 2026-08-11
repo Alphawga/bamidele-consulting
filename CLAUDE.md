@@ -13,8 +13,10 @@ module names. The four-year relationship and the v2 repeat purchase may be named
 
 **The sector is deliberately not picked.** `core/144-day-sprint.md` in the ops repo carries an
 override: let the next 5-10 diagnostics select it. Copy qualifies on the control filter
-(Nigerian businesses, 10-50 staff, owner still personally controls quotations, purchasing,
-invoicing, inventory or approvals), never on an industry.
+(Nigerian businesses, 10-100 staff, owner still personally controls quotations, purchasing,
+invoicing, inventory or approvals), never on an industry. The band is 10-100: it is what
+`core/144-day-sprint.md` says, and the sprint vetoes. `playbooks/outreach.md` says 10-50 and is
+the outlier.
 
 ## Voice rules (non-negotiable, for ALL copy)
 

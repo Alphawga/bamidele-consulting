@@ -56,7 +56,7 @@ const FITS = [
     body: "Quotations, purchases, invoices, stock, approvals. They all wait for you. Nothing moves while you travel, and none of it is written down anywhere your people can find it.",
   },
   {
-    title: "10 to 50 staff",
+    title: "10 to 100 staff",
     body: "Big enough that the patchwork costs real money every month, small enough that a ready-made ERP would bury you. That gap is where I work.",
   },
   {
