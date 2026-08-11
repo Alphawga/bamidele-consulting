@@ -6,6 +6,7 @@ import "./globals.css";
 import ChromeGate from "@/components/nav/ChromeGate";
 import StructuredData from "@/components/StructuredData";
 import { site } from "@/lib/site";
+import { alphawga } from "@/lib/alphawga";
 
 const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 
@@ -60,12 +61,13 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description:
-    "I consolidate scattered business operations into one intelligent system. For Nigerian business owners running on QuickBooks, spreadsheets, and WhatsApp.",
+    "AlphaWGA consolidates scattered business operations into one intelligent system. For Nigerian business owners running on QuickBooks, spreadsheets, and WhatsApp.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: site.name,
+    title: `${alphawga.name} — Woven, not patched`,
     description: site.tagline,
-    url: site.url,
-    siteName: site.name,
+    url: "/",
+    siteName: alphawga.name,
     type: "website",
   },
   robots: { index: true, follow: true },

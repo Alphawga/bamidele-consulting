@@ -21,6 +21,7 @@ export function generateMetadata({
   return {
     title: post.frontmatter.title,
     description: post.frontmatter.excerpt,
+    alternates: { canonical: `/blog/${params.slug}` },
   };
 }
 

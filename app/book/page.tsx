@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BookPage from "@/components/asoOke/BookPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/book" },
   title: { absolute: "AlphaWGA · Book" },
   description: "Book a free 20-minute read of your operations. No payment, just pick a time.",
   openGraph: {

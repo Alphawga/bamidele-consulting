@@ -4,6 +4,7 @@ import SectionLabel from "@/components/SectionLabel";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mentorship" },
   title: "Mentorship",
   description: "NDI facilitation and developer mentoring.",
 };

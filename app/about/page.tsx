@@ -5,6 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import BookButton from "@/components/BookButton";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description: "Eight years building software. Based in Lagos.",
 };

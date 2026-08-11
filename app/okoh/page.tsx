@@ -6,6 +6,7 @@ import CalEmbed from "@/components/CalEmbed";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/okoh" },
   title: "The Okoh build",
   description:
     "A procurement and supply company in oil and gas moved off five disconnected tools onto one platform. The client came back after two years to build v2.",

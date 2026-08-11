@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductsPage from "@/components/asoOke/ProductsPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products" },
   title: { absolute: "AlphaWGA · Products" },
   description:
     "Okoh ERP: already running a real procurement operation. Now being built for yours. Join the waitlist.",

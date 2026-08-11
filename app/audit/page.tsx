@@ -4,6 +4,7 @@ import SectionLabel from "@/components/SectionLabel";
 import AuditFlow from "@/components/AuditFlow";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/audit" },
   title: "Free operations audit",
   description:
     "Six questions about how your business runs today. Get a diagnostic back, then decide if a paid call makes sense.",

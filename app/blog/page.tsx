@@ -5,6 +5,7 @@ import BlogList from "@/components/BlogList";
 import { getBlogPosts, getBlogCategories } from "@/lib/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog",
   description:
     "Field notes on consolidating operations, from real builds and client work.",
