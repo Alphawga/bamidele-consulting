@@ -26,42 +26,39 @@ const STRIPS = [
 const OFFER_CARDS = [
   {
     color: "var(--oxblood)",
-    title: "Operational Control Diagnostic",
-    price: "₦100,000",
-    body: "One week inside one workflow that is costing you. You get the map of how that work actually moves today, the constraints ranked, and the 30 days of actions that follow.",
-    href: "/offers#operational-control-diagnostic",
-    cta: "See the Diagnostic →",
+    title: "Understand the operation",
+    body: "We begin with one critical workflow, from enquiry to cash or delivery. The aim is to see where work changes hands, what information is missing and where management has to step in.",
+    href: "/how-we-work",
+    cta: "How we work →",
   },
   {
     color: "var(--gold)",
-    title: "Consolidation Blueprint",
-    price: "₦750K to 1.5M",
-    body: "The full design of your future operation. Every process mapped, every tool chosen with real naira costs, a build plan any good developer can follow.",
-    href: "/offers#consolidation-blueprint",
-    cta: "See the Blueprint →",
+    title: "Define the change",
+    body: "If there is a material problem worth solving, AlphaWGA maps the work, clarifies the requirements and defines the commercial and delivery decisions before anyone starts building.",
+    href: "/offers",
+    cta: "See ways to work →",
   },
   {
     color: "var(--forest)",
-    title: "Consolidation Build",
-    price: "₦2M to 4M",
-    body: "I build the blueprint myself, inside your operation. Working software at the end, not a document somebody else has to interpret. A working demo every week.",
-    href: "/offers#consolidation-build",
-    cta: "See the Build →",
+    title: "Deliver the right intervention",
+    body: "The answer may be process redesign, better use of existing tools, integration, automation, training or custom software. The operation decides the medium, not the other way round.",
+    href: "/offers",
+    cta: "See ways to work →",
   },
 ];
 
 const FITS = [
   {
-    title: "You are still the system",
-    body: "Quotations, purchases, invoices, stock, approvals. They all wait for you. Nothing moves while you travel, and none of it is written down anywhere your people can find it.",
+    title: "Work crosses teams",
+    body: "Orders, purchases, stock, delivery, invoicing and approvals pass between people. The gaps between those handoffs are where control is most often lost.",
   },
   {
-    title: "10 to 100 staff",
-    body: "Big enough that the patchwork costs real money every month, small enough that a ready-made ERP would bury you. That gap is where I work.",
+    title: "Complexity has outgrown informal control",
+    body: "Multiple teams, locations, warehouses, approvals or disconnected tools now make it hard to see what is happening without chasing people for answers.",
   },
   {
-    title: "Your tools stopped agreeing",
-    body: "Sales says one number, stock says another, the bank says a third, and somebody spends the last week of every month reconciling all three by hand.",
+    title: "A sponsor can act",
+    body: "The right conversation includes a leader who can weigh the operational cost, decide what matters and move a justified change forward.",
   },
 ];
 
@@ -282,14 +279,13 @@ export default function AsoOkeHome() {
             Lagos, Nigeria · Business systems and operational control
           </div>
           <h1 className={styles.hdisp}>
-            <span className={`${styles.r3} ${styles.r3b}`}>Woven,</span>
-            <span className={`${styles.wn} ${styles.r3} ${styles.r3c}`}>not patched.</span>
+            <span className={`${styles.r3} ${styles.r3b}`}>Control cannot live</span>
+            <span className={`${styles.wn} ${styles.r3} ${styles.r3c}`}>in one person&apos;s head.</span>
           </h1>
           <p className={`${styles.ledes} ${styles.r3} ${styles.r3d}`} style={{ maxWidth: 600 }}>
-            I&apos;m Bamidele Ajibola. Right now you are the operating system of your business.
-            Every quote, every delivery, every follow-up passes through your head, and it leaks
-            money in places you can&apos;t see. AlphaWGA finds the leaks, puts a naira cost on
-            each one, and designs the operation that runs without you. It starts with one call.
+            AlphaWGA helps leaders of Nigerian distribution, wholesale, importing and operationally
+            complex businesses see where work, money and information break down. We identify what
+            is costing control, then decide what to fix before prescribing a solution.
           </p>
           <div className={`${styles.heroCtas} ${styles.r3} ${styles.r3d}`}>
             <a
@@ -297,19 +293,19 @@ export default function AsoOkeHome() {
               className={styles.btnp}
               onClick={() => trackEvent("diagnostic_cta_click", { location: "home_hero" })}
             >
-              Book a free 20-minute read →
+              Discuss an operational bottleneck →
             </a>
             <Link
-              href="/scorecard"
+              href="/how-we-work"
               className={styles.btnsec}
-              onClick={() => trackEvent("scorecard_link_click", { location: "home_hero" })}
+              onClick={() => trackEvent("how_we_work_click", { location: "home_hero" })}
             >
-              Take the free self-audit
+              See how we work
             </Link>
           </div>
           <p className={`${styles.heroProof} ${styles.r3} ${styles.r3d}`}>
-            Currently running the operations system behind a Lagos procurement firm serving
-            500+ clients.
+            Four years of hands-on operational-system work across purchasing, orders, inventory,
+            invoicing and payroll.
           </p>
         </div>
         <div ref={tiltRef} className={styles.tiltcard}>
@@ -360,7 +356,7 @@ export default function AsoOkeHome() {
             </div>
             <div ref={joinedRef} className={styles.joined} style={{ marginTop: "min(26px, 2.2vh)" }}>
               <div className={`${styles.striplbl} ${styles.joinedCaption}`}>
-                One system. The seams become the pattern.
+                One operating picture. The seams become visible.
               </div>
             </div>
             <p className={styles.scrollhint}>Keep scrolling. Six strips, one cloth</p>
@@ -378,13 +374,11 @@ export default function AsoOkeHome() {
                 The proof
               </div>
               <h2 className={styles.h2s} style={{ maxWidth: 900 }}>
-                Okoh ERP: 500+ clients moved off QuickBooks, SeamlessHR, Excel, Trello and
-                WhatsApp.
+                Four years of hands-on work inside a live procurement operation.
               </h2>
               <p className={styles.bodys} style={{ maxWidth: 700, marginTop: 24 }}>
-                A full ERP for an oil and gas procurement firm. Procurement, logistics, accounts,
-                inventory, payroll and HR, reporting. Every strip of the operation, woven onto
-                one loom.
+                Purchasing, orders, inventory, invoicing and payroll taught the same lesson:
+                software only helps once the operation and its decisions are understood.
               </p>
               <div className={styles.statrow}>
                 <div>
@@ -393,13 +387,12 @@ export default function AsoOkeHome() {
                       ref={(el) => {
                         countRefs.current[0] = el;
                       }}
-                      data-to="500"
+                      data-to="4"
                     >
-                      500
+                      4
                     </span>
-                    +
                   </div>
-                  <div className={styles.statl}>clients on one system</div>
+                  <div className={styles.statl}>years in use</div>
                 </div>
                 <div>
                   <div className={styles.statv}>
@@ -407,12 +400,12 @@ export default function AsoOkeHome() {
                       ref={(el) => {
                         countRefs.current[1] = el;
                       }}
-                      data-to="5"
+                      data-to="1"
                     >
-                      5
+                      1
                     </span>
                   </div>
-                  <div className={styles.statl}>tools retired</div>
+                  <div className={styles.statl}>live operation</div>
                 </div>
                 <div>
                   <div className={styles.statv}>
@@ -420,13 +413,12 @@ export default function AsoOkeHome() {
                       ref={(el) => {
                         countRefs.current[2] = el;
                       }}
-                      data-to="6"
+                      data-to="5"
                     >
-                      6
+                      5
                     </span>
-                    +
                   </div>
-                  <div className={styles.statl}>modules, one source of truth</div>
+                  <div className={styles.statl}>connected work areas</div>
                 </div>
               </div>
             </div>
@@ -440,8 +432,8 @@ export default function AsoOkeHome() {
           The work
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          It starts with a free 20-minute read. After that, three ways to go deeper, and each
-          one earns the next.
+          Every engagement begins by understanding the operation. The right next step is decided
+          from the problem, the economics and the delivery reality.
         </p>
         <div className={styles.pathgrid}>
           {OFFER_CARDS.map((offer, i) => (
@@ -457,7 +449,6 @@ export default function AsoOkeHome() {
             >
               <div className={styles.pathtop} style={{ background: offer.color }} />
               <h3 className={styles.h3s}>{offer.title}</h3>
-              <div className={styles.offerPrice}>{offer.price}</div>
               <p className={styles.bodys} style={{ fontSize: 16.5 }}>
                 {offer.body}
               </p>
@@ -469,15 +460,16 @@ export default function AsoOkeHome() {
         </div>
         <p className={`${styles.pathlink} ${styles.rv}`} style={{ marginTop: 36 }}>
           <Link href="/offers" className={styles.btnsec}>
-            See all offers →
+            See ways to work →
           </Link>
         </p>
       </section>
 
       <section className={styles.closingBand}>
-        <h2 className={styles.closingH2}>Start with a 20-minute read.</h2>
+        <h2 className={styles.closingH2}>Bring one operational bottleneck.</h2>
         <p className={styles.closingSub}>
-          No charge, no pitch. You leave knowing which part of the business to look at first.
+          A short conversation to understand how work moves now and whether there is a useful
+          reason to continue. It is not a diagnosis or a proposal.
         </p>
         <TrackedCta
           href={alphawga.calDiagnosticUrl}
@@ -485,7 +477,7 @@ export default function AsoOkeHome() {
           event="diagnostic_cta_click"
           data={{ location: "home_closing" }}
         >
-          Book the diagnostic →
+          Discuss the bottleneck →
         </TrackedCta>
       </section>
 
@@ -495,8 +487,8 @@ export default function AsoOkeHome() {
           Who this is for
         </div>
         <p className={`${styles.qualifier} ${styles.rv}`}>
-          Best fit: a Nigerian business where the owner still personally controls quotations,
-          purchasing, invoicing, inventory or approvals.
+          Best fit: a Nigerian business with recurring handoffs across teams, stock or procurement
+          complexity, multiple locations or warehouses, and a leader who needs clearer control.
         </p>
         <div className={styles.fitList}>
           {FITS.map((fit, i) => (

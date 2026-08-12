@@ -9,9 +9,9 @@ import shell from "./AsoOkeShell.module.css";
 import styles from "./OkohPage.module.css";
 
 const STATS = [
-  { v: "500+", l: "clients on one system" },
-  { v: "5", l: "tools retired" },
-  { v: "4", l: "years, and a second build" },
+  { v: "4", l: "years in use" },
+  { v: "1", l: "live operation" },
+  { v: "v2", l: "paid next phase" },
 ];
 
 const ARC = [
@@ -67,9 +67,9 @@ export default function OkohPage() {
           <span className={shell.wn}>We started with the business.</span>
         </h1>
         <p className={`${shell.ledes} ${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          Okoh is a Lagos procurement and supply operation serving oil and gas. Its business ran
-          on five disconnected tools until it ran on one system instead. Four years later the
-          same client came back and bought the second version.
+          Okoh is a Lagos procurement and supply operation serving oil and gas. The work began by
+          understanding how purchasing, orders, inventory, invoicing and payroll connected. Four
+          years later, the client commissioned a paid second version.
         </p>
         <div className={`${styles.statRow} ${shell.rise} ${shell.riseD}`}>
           {STATS.map((stat) => (
@@ -162,7 +162,7 @@ export default function OkohPage() {
             event="diagnostic_cta_click"
             data={{ location: "okoh_closing" }}
           >
-            Book a free 20-minute read →
+            Discuss a bottleneck →
           </TrackedCta>
         </div>
       </section>

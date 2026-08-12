@@ -117,8 +117,8 @@ export default function ProductsPage() {
         <div className={styles.intro}>
           <p className={styles.bodyP}>
             Most ERP software is built in an office and sold on promises. Okoh ERP was built
-            inside a Lagos oil and gas procurement firm serving 500+ clients, replacing
-            scattered apps, spreadsheets, and manual reminders with one system that holds.
+            inside a Lagos oil and gas procurement firm, replacing scattered apps, spreadsheets,
+            and manual reminders with one system that holds.
           </p>
           <p className={styles.bodyP}>
             It covers the full chain: quotation, inventory, purchasing, order tracking,

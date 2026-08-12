@@ -57,11 +57,11 @@ const asoBody = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — One intelligent system for your operation`,
+    default: `${site.name} — Business systems and operational control`,
     template: `%s — ${site.name}`,
   },
   description:
-    "AlphaWGA consolidates scattered business operations into one intelligent system. For Nigerian business owners running on QuickBooks, spreadsheets, and WhatsApp.",
+    "AlphaWGA helps Nigerian operationally complex businesses understand where work, money and information break down, then decide what to fix.",
   alternates: { canonical: "/" },
   openGraph: {
     title: `${alphawga.name} — Woven, not patched`,

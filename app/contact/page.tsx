@@ -4,7 +4,7 @@ import ContactPage from "@/components/asoOke/ContactPage";
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: { absolute: "AlphaWGA · Contact" },
-  description: "Bring the tangle, leave with a thread. Book a free 20-minute read or send a plain email.",
+  description: "Bring one operational bottleneck. Discuss how work moves before deciding what needs to change.",
 };
 
 export default function Page() {

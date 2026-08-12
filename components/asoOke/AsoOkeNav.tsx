@@ -60,8 +60,8 @@ export default function AsoOkeNav() {
           className={`${styles.btnsec} ${styles.navCta}`}
           onClick={() => trackEvent("diagnostic_cta_click", { location: "nav" })}
         >
-          <span className={styles.navCtaFull}>Book a free 20-minute read</span>
-          <span className={styles.navCtaShort}>Book diagnostic</span>
+          <span className={styles.navCtaFull}>Discuss a bottleneck</span>
+          <span className={styles.navCtaShort}>Discuss</span>
         </a>
         <button
           type="button"
@@ -95,7 +95,7 @@ export default function AsoOkeNav() {
             className={`${styles.btnp} ${styles.navMenuCta}`}
             onClick={() => trackEvent("diagnostic_cta_click", { location: "nav_menu" })}
           >
-            Book a free 20-minute read →
+            Discuss a bottleneck →
           </a>
         </div>
       ) : null}

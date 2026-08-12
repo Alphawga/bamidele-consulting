@@ -113,11 +113,11 @@ export default function ScorecardFlow() {
         <p className={styles.bandDesc}>{result.band.description}</p>
         <p className={styles.weakest}>Weakest section: {result.weakestSection}</p>
         <p className={styles.proofLine}>
-          Built from the leaks found and fixed inside a live 500-client procurement operation.
+          Built from hands-on work inside a live procurement operation.
         </p>
         <p className={styles.ctaText}>
-          Want to know which leak to look at first? Book a free 20-minute read. Twenty minutes,
-          no charge, and you leave with one thing you can go and check yourself.
+          Want to discuss one operational bottleneck? Start with a short conversation about how
+          work moves before deciding what needs to change.
         </p>
         <TrackedCta
           href={alphawga.calDiagnosticUrl}
@@ -125,7 +125,7 @@ export default function ScorecardFlow() {
           event="diagnostic_cta_click"
           data={{ location: "scorecard_result" }}
         >
-          Book the diagnostic →
+          Discuss a bottleneck →
         </TrackedCta>
       </div>
     );

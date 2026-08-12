@@ -9,93 +9,67 @@ import styles from "./OffersPage.module.css";
 
 const OFFERS = [
   {
-    key: "operational-control-diagnostic",
-    step: "STEP TWO",
+    key: "operational-conversation",
+    step: "START HERE",
     color: "var(--oxblood)",
-    title: "Operational Control Diagnostic",
-    price: "₦100,000",
-    per: "1 week",
-    tagline: "One workflow, taken apart and understood, in a week.",
-    body: "We agree on the workflow that is costing you most before anything starts. You walk away with a written map of how that work actually moves through your business today, the constraints ranked by what they cost, and the 30 days of actions that follow from it.",
-    listTitle: "What's inside",
+    title: "Operational conversation",
+    price: "No charge",
+    per: "short introductory conversation",
+    tagline: "One real bottleneck, understood before anyone prescribes a solution.",
+    body: "Bring an order, purchase, delivery, invoicing or approval problem. We trace the workflow, identify the information and decision handoffs, and decide whether there is a material problem worth taking further.",
+    listTitle: "What we establish",
     points: [
-      "One high-risk workflow, scoped and agreed before we start",
-      "Interviews with you and up to two of your staff",
-      "A review of every tool that workflow touches",
-      "The current-state map: how the work moves today, not how it is supposed to",
-      "The constraints, named and ranked by what each one costs you",
-      "30-day actions, each marked \"your team can do this\" or \"needs a developer\"",
-      "A readout call where I walk you through every finding",
+      "The workflow that deserves attention first",
+      "The teams, records and decisions it crosses",
+      "What is known, what is assumed and what needs evidence",
+      "Whether a commercial next step is justified",
     ],
     guarantee:
-      "You get a written deliverable, never an hour of my time. The document is yours forever and you can execute it with anyone. If the workflow turns out healthier than you feared, I will say so and the actions list will be short.",
-    cta: "Start with the free read →",
+      "This is not a diagnosis, a proposal or a disguised software pitch. It is a focused conversation to decide whether there is a useful reason to continue.",
+    cta: "Discuss a bottleneck →",
   },
   {
-    key: "consolidation-blueprint",
-    step: "STEP THREE",
+    key: "paid-definition",
+    step: "WHEN FURTHER WORK IS NEEDED",
     color: "var(--gold)",
-    title: "Consolidation Blueprint",
-    price: "₦750K to 1.5M",
-    per: "4 to 6 weeks",
-    tagline: "Your future operation, designed so it gets built right the first time.",
-    body: "You walk away with the complete design of your new operation: every process mapped, every tool chosen with its real naira cost, and a build plan written so any good developer builds it correctly, no false starts, no money burnt on rebuilds.",
-    listTitle: "What's inside",
+    title: "Paid definition and scoping",
+    price: "Scoped after discovery",
+    per: "timing and commercial terms follow the work",
+    tagline: "Define the problem and the responsible intervention before committing implementation money.",
+    body: "When a material problem needs deeper work before it can be responsibly priced, AlphaWGA maps the current state, clarifies requirements, tests options and creates the specification for the next decision.",
+    listTitle: "The definition work can include",
     points: [
-      "Your operation mapped end to end, today and future state",
-      "Tool choices with costs and reasons: use this because of this, it costs about this monthly",
-      "Exactly what information lives where, and who owns it",
-      "A build plan any good developer can follow without meeting me",
-      "A vendor shortlist with the questions to ask before you pay anyone",
-      "30 days of WhatsApp support so the plan does not die in a drawer",
+      "Process and handoff mapping",
+      "Requirements, controls and information ownership",
+      "The economics and risks of the available options",
+      "A delivery plan, milestones and commercial specification",
+      "A clear recommendation, including when AlphaWGA should not deliver it",
     ],
-    guarantee: "If a good developer cannot build from my plan, I work with them until they can, at no extra cost.",
-    cta: "Begins after a diagnostic →",
-    href: "#operational-control-diagnostic",
+    guarantee: "The scope, price and delivery approach come from the operation we have understood, not from a generic rate card.",
+    cta: "Discuss a bottleneck →",
+    href: "#operational-conversation",
   },
   {
-    key: "consolidation-build",
-    step: "STEP FOUR",
+    key: "implementation",
+    step: "WHEN CHANGE IS JUSTIFIED",
     color: "var(--forest)",
-    title: "Consolidation Build",
-    price: "₦2M to 4M",
-    per: "6 to 10 weeks",
-    tagline: "I don't just tell you what to build. I build it, and it works before I hand it back.",
-    body: "Blueprints usually die at implementation, not because the plan was wrong but because nobody senior was watching. This is the version where the person who found the leaks is the one who closes them, inside your operation, with working software at the end instead of a document somebody else has to interpret.",
-    listTitle: "What's inside",
+    title: "Implementation or advisory",
+    price: "Priced to scope",
+    per: "only after a delivery and margin plan exists",
+    tagline: "Use the intervention the operation needs, not the one a vendor happens to sell.",
+    body: "The answer may be process redesign, existing-software configuration, integration, automation, staff training, a small custom tool or a larger implementation. AlphaWGA recommends and delivers only what the discovered problem justifies.",
+    listTitle: "Every engagement requires",
     points: [
-      "The same process mapping and future-state design as the Blueprint, or your existing one reused",
-      "Built inside your operation, against how your people actually work",
-      "A working demo every week, same day and time, so progress is never a black box",
-      "About six weeks for a single department, about ten for a full operation",
-      "Payment in three parts: 30% to start, 30% at a working midpoint demo, 40% at handover",
+      "A named sponsor and decision owner",
+      "Defined milestones and delivery owners",
+      "Cash collection before substantial delivery cost",
+      "A direct-delivery-cost, gross-profit and founder-hours view",
+      "A plan for adoption, controls and operational handover",
     ],
     guarantee:
-      "If you already have a developer or a team who can build it, buy the Blueprint instead and let them. I will tell you that in the conversation rather than after you have paid.",
-    afterNote: "Sign within 30 days of Blueprint handover and 20% of the Blueprint fee comes off the Build.",
-    cta: "Begins after a diagnostic →",
-    href: "#operational-control-diagnostic",
-  },
-  {
-    key: "systems-advisor",
-    step: "STEP FIVE",
-    color: "var(--oxblood)",
-    title: "Systems Advisor",
-    price: "₦300,000",
-    per: "per month, minimum 3 months",
-    tagline: "A senior systems head on your team for less than a junior developer's salary.",
-    body: "You stop making systems decisions alone. Every vendor quote, developer invoice, and tool choice gets reviewed before your money moves. Each month you get a one-page report: what improved, what is stuck, what happens next.",
-    listTitle: "What's inside",
-    points: [
-      "Two strategy calls every month",
-      "WhatsApp access, answers within 24 hours on business days",
-      "Everything systems-related reviewed before you commit",
-      "The monthly report that shows what you are paying for",
-    ],
-    guarantee:
-      "Cancel with 30 days notice. If the monthly report cannot justify the fee, you will both know it and be free to act on it.",
-    afterNote: "I take only four advisory clients at a time.",
-    cta: "Start with the free read →",
+      "Custom software is never assumed. If existing tools, process change or another provider are better, that is the recommendation.",
+    cta: "Discuss a bottleneck →",
+    href: "#operational-conversation",
   },
 ];
 
@@ -111,13 +85,13 @@ export default function OffersPage() {
           Offers
         </div>
         <h1 className={`${styles.h1} ${shell.rise} ${shell.riseB}`}>
-          A business that
+          The operation decides
           <br />
-          <span className={shell.wn}>runs without you.</span>
+          <span className={shell.wn}>what needs to change.</span>
         </h1>
         <p className={`${shell.ledes} ${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          That is the result. It starts with a free conversation, and every step after it earns
-          the next. No retainers you can&apos;t explain to your accountant.
+          AlphaWGA does not begin with a software recommendation or a public rate card. We first
+          understand how work, money and information move through the business.
         </p>
         <div className={`${styles.heroCtas} ${shell.rise} ${shell.riseD}`}>
           <TrackedCta
@@ -126,7 +100,7 @@ export default function OffersPage() {
             event="diagnostic_cta_click"
             data={{ location: "offers_hero" }}
           >
-            Book a free 20-minute read →
+            Discuss a bottleneck →
           </TrackedCta>
         </div>
       </header>
@@ -136,17 +110,18 @@ export default function OffersPage() {
           <div className={styles.rungBandText}>
             <div className={`${shell.slabel} ${styles.rungBandLabel}`}>
               <SeamMark />
-              STEP ONE · A 20-minute read · Free
+              START HERE · AN OPERATIONAL CONVERSATION · NO CHARGE
             </div>
-            Twenty minutes on how your business actually runs.
+            Start with one real workflow.
             <br />
             <br />
-            You describe how work moves through the business. I tell you which part I would look
-            at first and why, and give you one thing you can go and check yourself this week.
+            You describe how one order, purchase, delivery, invoice or approval moves through the
+            business. We identify the handoffs, exceptions, information gaps and management
+            interventions that need attention.
             <br />
             <br />
-            If a full diagnostic is worth doing after that, I will tell you what it costs. If it
-            isn&apos;t, I will tell you that too.
+            If deeper work is justified, AlphaWGA will define its scope, timing and commercial terms
+            from what is discovered. If it is not, that will be said plainly.
           </div>
           <TrackedCta
             href={alphawga.calDiagnosticUrl}
@@ -154,7 +129,7 @@ export default function OffersPage() {
             event="diagnostic_cta_click"
             data={{ location: "offers_rung_band" }}
           >
-            Book the free read →
+            Discuss a bottleneck →
           </TrackedCta>
         </div>
 
@@ -177,7 +152,6 @@ export default function OffersPage() {
                 </div>
               ))}
               <p className={styles.footnote}>{offer.guarantee}</p>
-              {offer.afterNote && <p className={styles.footnote}>{offer.afterNote}</p>}
               <TrackedCta
                 href={offer.href ?? alphawga.calDiagnosticUrl}
                 className={`${shell.btnfill} ${styles.cta}`}
@@ -192,21 +166,22 @@ export default function OffersPage() {
 
         <div className={styles.footnotes}>
           <p className={styles.footnote}>
-            Sometimes the fix is software and sometimes it is not. The diagnostic is what tells
-            you which, and it is the same answer whether or not I am the one who builds it.
-            The <Link href="/okoh">Okoh build</Link> is the clearest evidence of what happens
-            when the diagnosis comes first.
+            The same question governs every engagement: what change is justified by the operation,
+            its economics and its delivery reality? AlphaWGA may recommend process redesign,
+            existing software, integration, automation, training or custom software. The
+            <Link href="/okoh"> Okoh work</Link> is hands-on experience, not a reason to prescribe
+            an ERP to every business.
           </p>
         </div>
       </section>
 
       <section className={styles.scorecardBand}>
         <p className={styles.scorecardText}>
-          Not ready to pay anything yet. Take the free self-audit and find your leaks in 10
-          minutes, on your own.
+          Prefer to understand the approach before talking? See how AlphaWGA investigates a real
+          operational problem.
         </p>
-        <Link href="/scorecard" className={shell.btnsec}>
-          Take the free self-audit →
+        <Link href="/how-we-work" className={shell.btnsec}>
+          See how we work →
         </Link>
       </section>
 

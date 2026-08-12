@@ -8,8 +8,8 @@ import styles from "./ContactPage.module.css";
 
 const FACTS = [
   { k: "Response", v: "Within 24 hours, business days" },
-  { k: "First conversation", v: "Free. Twenty minutes, no pitch" },
-  { k: "Best for", v: "Owner-run operations, 10 to 100 staff" },
+  { k: "First conversation", v: "No charge. Focused on one operational bottleneck" },
+  { k: "Best for", v: "Operationally complex businesses with a sponsor who can act" },
 ];
 
 export default function ContactPage() {
@@ -30,8 +30,8 @@ export default function ContactPage() {
             <span className={shell.wn}>Leave with a thread.</span>
           </h1>
           <p className={`${styles.lede} ${shell.rise} ${shell.riseC}`}>
-            The fastest way in is the free 20-minute read. One conversation, and you keep the map.
-            For everything else, a plain email works.
+            The fastest way in is a short operational conversation. Bring one bottleneck and we
+            decide whether a useful next step exists. For everything else, a plain email works.
           </p>
           <div className={`${styles.ctaStack} ${shell.rise} ${shell.riseD}`}>
             <TrackedCta
@@ -40,7 +40,7 @@ export default function ContactPage() {
               event="diagnostic_cta_click"
               data={{ location: "contact_hero" }}
             >
-              Book a free 20-minute read →
+              Discuss a bottleneck →
             </TrackedCta>
             <a href={`mailto:${alphawga.email}`} className={styles.emailLink}>
               {alphawga.email}

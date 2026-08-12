@@ -17,14 +17,14 @@ export default function BookPage() {
           Book
         </div>
         <h1 className={`${styles.h1} ${shell.rise} ${shell.riseB}`}>
-          Twenty minutes.
+          Bring one bottleneck.
           <br />
-          <span className={shell.wn}>No charge, no pitch.</span>
+          <span className={shell.wn}>Start with how work moves.</span>
         </h1>
         <p className={`${styles.lede} ${shell.rise} ${shell.riseC}`}>
-          Tell me how the business runs and I will tell you which part I would look at first,
-          and why. If a full diagnostic is worth doing after that, I will say what it costs and
-          you can decide then. Pick a time.
+          Bring one order, purchase, delivery, invoicing or approval problem. We will trace how
+          it moves through the business, where control is being lost and whether there is a useful
+          reason to continue. This is a first conversation, not a diagnosis or proposal.
         </p>
       </header>
 

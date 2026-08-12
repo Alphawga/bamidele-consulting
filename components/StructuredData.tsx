@@ -32,7 +32,7 @@ export default function StructuredData() {
     url: site.url,
     email: alphawga.email,
     description:
-      "AlphaWGA is a business systems and operational control firm in Lagos, Nigeria. It diagnoses how work, money and information move through a growing business, then consolidates fragmented, owner-dependent operations into one system.",
+      "AlphaWGA is a business systems and operational control firm in Lagos, Nigeria. It helps operationally complex businesses understand where work, money and information break down, then decide what process, systems or technology change is justified.",
     logo: {
       "@type": "ImageObject",
       url: `${site.url}/apple-icon`,
@@ -76,9 +76,9 @@ export default function StructuredData() {
     provider: { "@id": orgId },
     areaServed: { "@type": "Country", name: "Nigeria" },
     serviceType: [
-      "Operational control diagnostic",
-      "Operations consolidation",
-      "Systems advisory",
+      "Operational diagnosis",
+      "Process redesign",
+      "Systems selection and implementation",
     ],
   };
 

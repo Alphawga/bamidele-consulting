@@ -100,7 +100,7 @@ export default function HowWeWorkPage() {
             event="diagnostic_cta_click"
             data={{ location: "how_we_work_hero" }}
           >
-            Book a free 20-minute read →
+            Discuss a bottleneck →
           </TrackedCta>
           <Link href="/offers" className={shell.btnsec}>
             See the offers
@@ -114,7 +114,7 @@ export default function HowWeWorkPage() {
             <SeamMark />
             The frame
           </div>
-          <h2 className={styles.h2}>Seven things a diagnostic looks at.</h2>
+          <h2 className={styles.h2}>Seven things we investigate before recommending change.</h2>
           <p className={styles.sectionLede}>
             Every engagement asks the same seven questions of the business. The answers differ
             enormously. The questions do not.
@@ -137,14 +137,11 @@ export default function HowWeWorkPage() {
             <SeamMark />
             The work
           </div>
-          <h2 className={styles.h2}>What a week of it looks like.</h2>
+          <h2 className={styles.h2}>What paid definition work can look like.</h2>
           <p className={styles.sectionLede}>
-            This is the{" "}
-            <Link href="/offers#operational-control-diagnostic">
-              Operational Control Diagnostic
-            </Link>{" "}
-            at its smallest scope: one workflow, one week. Larger scopes run the same five steps
-            across more of the business.
+            When a material problem needs more work before implementation can be responsibly priced,
+            AlphaWGA defines the scope around the workflow, people, evidence and decision required.
+            These steps are adapted to the operation, not sold as a one-size-fits-all package.
           </p>
           <div className={styles.stepGrid}>
             {STEPS.map((step) => (
@@ -165,20 +162,19 @@ export default function HowWeWorkPage() {
             <h2 className={styles.ruleBandH}>Technology follows diagnosis. Never the reverse.</h2>
             <p className={styles.ruleBandBody}>
               Sometimes the answer is software. Often it is a process, a control, or one person
-              given clear ownership of something. If the diagnostic says you do not need to build
-              anything, you will hear that, and the roadmap will be short. You are paying for the
-              truth about your operation, not for a big document.
+              given clear ownership of something. If no build is justified, that is the
+              recommendation. The aim is a responsible decision about your operation, not a
+              pre-decided software sale.
             </p>
           </div>
         </div>
       </section>
 
       <section className={styles.closing}>
-        <h2 className={styles.closingH2}>Start with twenty minutes.</h2>
+        <h2 className={styles.closingH2}>Start with one real workflow.</h2>
         <p className={styles.closingSub}>
-          No charge, no pitch. You describe how work moves through the business, and you leave
-          knowing which part to look at first and one thing you can go and check yourself this
-          week.
+          Bring the order, purchase, delivery, invoicing or approval problem that keeps demanding
+          management attention. We will decide whether there is a useful reason to continue.
         </p>
         <div className={styles.closingCta}>
           <TrackedCta
@@ -187,7 +183,7 @@ export default function HowWeWorkPage() {
             event="diagnostic_cta_click"
             data={{ location: "how_we_work_closing" }}
           >
-            Book the free read →
+            Discuss a bottleneck →
           </TrackedCta>
         </div>
       </section>

@@ -38,7 +38,7 @@ export default function AboutPage() {
               event="diagnostic_cta_click"
               data={{ location: "about_hero" }}
             >
-              Book a free 20-minute read →
+              Discuss a bottleneck →
             </TrackedCta>
             <Link href="/okoh" className={shell.btnsec}>
               Read the case study

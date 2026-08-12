@@ -23,8 +23,8 @@ function canonicalUrl(raw: string | undefined): string {
 
 export const site = {
   name: "Bamidele Ajibola",
-  role: "Full-stack developer, Lagos",
-  tagline: "I consolidate scattered business operations into one intelligent system.",
+  role: "Founder, AlphaWGA · Business systems and operational control",
+  tagline: "Operational control for Nigerian businesses where work crosses teams.",
   url: canonicalUrl(process.env.NEXT_PUBLIC_SITE_URL),
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "",
   email: alphawga.email,
