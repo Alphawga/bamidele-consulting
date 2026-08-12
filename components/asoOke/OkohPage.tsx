@@ -54,10 +54,10 @@ export default function OkohPage() {
           Case study
         </div>
         <Image
-          src="/images/okoh-erp-logo.png"
-          alt="Okoh ERP System"
-          width={215}
-          height={38}
+          src="/images/okoh-international-logo.png"
+          alt="Okoh International"
+          width={1254}
+          height={1254}
           className={`${styles.clientLogo} ${shell.rise} ${shell.riseA}`}
           priority
         />

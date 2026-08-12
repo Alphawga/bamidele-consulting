@@ -8,9 +8,10 @@
   justify-content: center;
 }
 .clientLogo {
-  margin-bottom: clamp(24px, 3vw, 34px);
+  margin-bottom: clamp(20px, 2.5vw, 30px);
   height: auto;
-  width: clamp(170px, 20vw, 230px);
+  width: clamp(230px, 28vw, 360px);
+  background: #fff;
 }
 .h1 {
   font-family: var(--font-aso-display), sans-serif;
